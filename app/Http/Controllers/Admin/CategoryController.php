@@ -64,12 +64,22 @@ class CategoryController extends Controller
                     'msg' => "category already exists"
                 ];
             }else{
+              if ($request->hasFile('image'))
+              {
+                    $file      = $request->file('image');
+                    $filename  = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $picture   = date('His').'-'.$filename;
+                    $uploadSuccess = $file->move(public_path('admin/upload/category'), $picture);
+              }else{
+                    $picture = 'dummy.jpg';
+              }  
               $category = Category::create([
                 'name' => trim($params['cat_name']),
                 'slug' => trim($params['cat_slug']),
                 'description' => trim($params['cat_description']),
                 'alt' => trim($params['cat_image_alt']),
-                'image' => 'dummy.jpg',
+                'image' => $picture,
                 'cat_parent_id' => trim($params['cat_parent_id']),
                 'meta_title' => trim($params['meta_title']),
                 'meta_keyword' => trim($params['meta_keyword']),
@@ -138,14 +148,27 @@ class CategoryController extends Controller
      $success = true;
      $dbError = [];
      try {
-
          $categoryToBeUpdated = Category::find($categoryId);
+         if ($request->hasFile('image'))
+              {
+                    $file      = $request->file('image');
+                    $filename  = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $picture   = date('His').'-'.$filename;
+                    $uploadSuccess = $file->move(public_path('admin/upload/category'), $picture);
+                    if($uploadSuccess){
+                        $file_path = public_path('admin/upload/category/').$categoryToBeUpdated->image;
+                        unlink($file_path);
+                    }
+              }else{
+                    $picture = $categoryToBeUpdated->image;
+              }
                 $updateFields = [
                         'name' => trim($params['cat_name']),
                         'slug' => trim($params['cat_slug']),
                         'description' => trim($params['cat_description']),
                         'alt' => trim($params['cat_image_alt']),
-                        'image' => 'dummy.jpg',
+                        'image' => $picture,
                         'cat_parent_id' => trim($params['cat_parent_id']),
                         'meta_title' => trim($params['meta_title']),
                         'meta_keyword' => trim($params['meta_keyword']),

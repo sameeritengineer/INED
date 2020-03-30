@@ -95,16 +95,17 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label for="projectinput8">Category Description</label>
-                                 <textarea id="projectinput8" rows="5" class="form-control" name="cat_description" placeholder="Category Description"></textarea>
+                                 <textarea id="summary-ckeditor" rows="5" class="form-control" name="cat_description" placeholder="Category Description"></textarea>
                               </div>
                            </div>
                         </div>
                         <div class="row">
                            <div class="col-md-6">
                               <div class="form-group">
+                                 <img id="output"/>
                                  <label>Upload Image</label>
                                  <label id="projectinput7" class="file center-block">
-                                 <input type="file" id="file" name="cat_image">
+                                 <input type="file" id="file" onchange="loadFile(event)" name="image">
                                  <span class="file-custom"></span>
                                  </label>
                               </div>
@@ -135,7 +136,7 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label for="projectinput8">Meta Description</label>
-                                 <textarea id="projectinput8" rows="5" class="form-control" name="meta_description" placeholder="Meta Description"></textarea>
+                                 <textarea id="summary-ckeditor1" rows="5" class="form-control" name="meta_description" placeholder="Meta Description"></textarea>
                               </div>
                            </div>
                         </div>
@@ -192,4 +193,15 @@
 </form> -->
 </div>
 </div>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+    CKEDITOR.replace( 'summary-ckeditor1' );
+</script>
 @endsection

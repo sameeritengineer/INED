@@ -21,6 +21,12 @@
             <li class="{{ in_array(Route::currentRouteName(), ['boards.create']) ? 'active' : '' }}"><a href="{{route('boards.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Editorial Boards</span></a></li>
         </ul>
       </li>
+      <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">News and Events</span></a>
+        <ul class="menu-content">
+            <li class="{{ in_array(Route::currentRouteName(), ['news.index','boards.edit']) ? 'active' : '' }}"><a href="{{route('news.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">News and Events</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['news.create']) ? 'active' : '' }}"><a href="{{route('news.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add News and Events</span></a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>

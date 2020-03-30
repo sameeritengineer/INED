@@ -13,17 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     //return view('welcome');
+//     return view('web.home.index');
+// });
+
+Auth::routes();
+Route::group([
+    'namespace'=>'Web',
+    'as' => 'web.',
+],function(){
+	Route::get('/', 'HomeController@index')->name('home');
+	Route::get('all-editorial/{slug?}', 'HomeController@showalleditorial')->name('all-editorial');
+	Route::get('ined-library', 'LibraryController@index')->name('ined-library');
+	//Route::get('ined-library/{categorySlug}/{typeSlug}', 'LibraryController@single')->name('ined-library-single');
+	//Route::get('ined-library-detail/{categorySlug}', 'LibraryController@detail')->name('ined-library-detail');
+
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 
@@ -32,5 +42,6 @@ Route::prefix('ined_admin')->middleware(['auth','can:isAllowed,"Admin:"'])->grou
        Route::resource('categories','Admin\CategoryController');
        Route::resource('libraries','Admin\LibraryController');
        Route::resource('boards','Admin\BoardController');
+       Route::resource('news','Admin\NewsController');
        Route::post('subcategories','Admin\CategoryController@subcategories')->name('subcategories');
 });

@@ -12,4 +12,8 @@ class Category extends Model
     {
     	return $this->hasMany('App\Library');
     }
+    public function boards()
+    {
+    	return $this->hasMany('App\Board');
+    }
 }

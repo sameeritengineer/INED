@@ -25,7 +25,7 @@ class CreateLibrariesTable extends Migration
             $table->string('upload')->nullable();
             $table->string('image')->nullable();
             $table->string('alt')->nullable();
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable()->default(NULL);
             $table->integer('subcategory_id')->nullable()->default(NULL);
             $table->text('meta_title')->nullable();
             $table->text('meta_keyword')->nullable();

@@ -1,0 +1,111 @@
+@extends('web.layouts.index')
+@section('title','Editorial Boards')
+@section('content')
+<div class="col-md-12 col-sm-12 col-xs-12 top-banner" id="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+	       <div class="swiper-slide">
+                <img src="{{asset('web/images/main-banner.jpg')}}" alt="" class="img-responsive bannner-img hidden-xs" />
+                <img src="{{asset('web/images/mob-banner.jpg')}}" alt="" class="img-responsive bannner-img visible-xs" />
+               <div class="banner-cont text-center">
+                   <h3 class="">Our Mission is to Create <br> a World Class Medical E-library for Anyone Anywhere</h3>
+                   <strong><a class="know-more-btn" href="ined-library.php"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12 about_section">
+    <div class="container">
+        <div class="section-title-row">
+            <h3 class="section-title">ABOUT US</h3>
+        </div>
+        <div class="col-md-6 about_img">
+            <img class="img-responsive" src="{{asset('web/images/about_us_home.jpg')}}" alt="aboutus">
+            </img>
+        </div>
+        <div class="col-md-6 about_cont">
+            We strive to bring together the best medical content from major publishers and medical leaders in their specialty, faculty from top training programs to create a large up-to-date training library for healthcare practitioners using fast, easy, effective online learning tools.
+			<a class="read_more_text padding-top-10" href="/about-us.php">Read More</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12 about_section">
+    <div class="container">
+        <div class="row">
+            <div class="section-title-row col-md-12 col-sm-12 col-xs-12">
+                <h3 class="section-title">INED LIBRARY</h3>
+               <!-- <p class="title-p-des">International Medical Education</p> -->
+            </div>
+            @foreach($categories as $cat)
+            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
+                <img src="{{asset('admin/upload/category/'.$cat->image)}}" alt="{{$cat->alt}}" class="img-responsive" />
+                <div class="img_split">{{$cat->name}}</div>
+            </div>
+            @endforeach
+        </div>
+       <!-- <div class="view-all-btn"><a class="view-all" href="">View All</a></div> -->
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12 editorial_board">
+    <div class="section-title-row col-md-12 col-sm-12 col-xs-12">
+        <h3 class="section-title text-white">EDITORIAL BOARD</h3>
+        <p class="title-p-des text-white">International Medical Education</p>
+    </div>
+    <div id="testimonial" class="col-md-12 col-sm-12 col-xs-12">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            @foreach($boards as $board)
+                <div class="swiper-slide slider-row">
+                    <div class="slider-img-testimonial">
+                        <img src="{{asset('admin/upload/board/'.$board->image)}}" class="img-responsive img-circle" alt="{{$board->alt}}" />
+                    </div>
+                    <div class="testimonial_content">
+                        <h3>{{$board->name}}</h3>
+                        <p class="testimonial_p_profile"><b>{{$board->designation}}</b></p>
+                        <p>{{ $board->s_description }}</p>
+                        <a class="read_more_text" href="{{route('web.all-editorial', $board->slug)}}">Read More</a>
+                        </p>
+                    </div>
+                </div>
+            @endforeach
+
+            </div>
+<!--             <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12 about_section">
+    <div class="container">
+        <div class="row">
+            <div class="section-title-row col-md-12 col-sm-12 col-xs-12">
+                <h3 class="section-title">NEWS &AMP; EVENTS</h3>
+                <p class="title-p-des">International Medical Education</p>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
+                <a href="https://www.cdc.gov/coronavirus/2019-ncov/summary.html" target="_blank"><img src="{{asset('web/images/neews-and-events-1.png')}}" alt="" class="img-responsive" />
+                <h3 class="title-color">Coronavirus Disease 2019 (COVID-19)</h3></a>
+                <p class="date-font">March 14, 2020</p>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
+                 <a href="https://www.nature.com/articles/s41575-020-0281-0" target="_blank"><img src="{{asset('web/images/neews-and-events-2.png')}}" alt="" class="img-responsive" />
+                <h3 class="title-color">Bridging transplantation with beads</h3></a>
+                <p class="date-font">February 27, 2020</p>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
+               <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/joim.13035?referrer_access_token=wg2Ywye6-TPyn2nUx0JEB4ta6bR2k8jH0KrdpFOxC64w1hK7vUcGjLPUeSNTiOM_UcBtALP7Qhye9upkX_0SkTdePwTBjgn4AV_jnutnvTnx438R89exjehEgtX1SmkrAqxOEGdZtS0t0X0hYXAayA%3D%3D" target="_blank"><img src="{{asset('web/images/neews-and-events-3.png')}}" alt="" class="img-responsive" />
+                <h3 class="title-color">Ethnic inﬂuence on nonalcoholic fatty liver</h3></a>
+                <p class="date-font">January 10, 2020</p>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
