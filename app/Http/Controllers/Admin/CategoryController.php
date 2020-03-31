@@ -203,6 +203,14 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        // if($category->delete()){
+        //  if($category->cat_parent_id == 0){
+        //   Board::where('category_id', $category->id)->update(array('category_id' => NULL,'subcategory_id' => NULL));
+        //   }else{
+        //   Board::where('subcategory_id', $category->id)->update(array('subcategory_id' => NULL));  
+        //   }
+        // }
+
         $category->delete();
         return redirect()->back()->with('success','Category Deleted Succesfully');
     }
