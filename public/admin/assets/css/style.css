@@ -146,3 +146,7 @@ li.active a.menu-item {
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+li.nav-item.active a {
+    background: #2a7d15 !important;
+    color: #fff !important;
+}

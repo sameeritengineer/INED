@@ -43,6 +43,8 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/style.css')}}">
   <!-- END Custom CSS-->
-
+  <!-- BEGIN VENDOR JS-->
+<script src="{{asset('admin/app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
+<!-- BEGIN VENDOR JS-->
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">

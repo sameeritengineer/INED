@@ -106,10 +106,16 @@
                                  </label>
                               </div>
                            </div>
-                           <div class="col-md-6">
+                           <div class="col-md-3">
                               <div class="form-group">
                                  <label for="projectinput2">Image Alt</label>
                                  <input type="text" id="projectinput2" class="form-control" placeholder="Image Alt" name="alt" value="{{ $news->alt }}">
+                              </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="form-group">
+                                 <label for="projectinput2">Url</label>
+                                 <input type="text" id="projectinput2" class="form-control" placeholder="Url" name="url" value="{{ $news->url }}">
                               </div>
                            </div>
                         </div>

@@ -8,11 +8,12 @@
 		<div class="row">
 			<div class="col-md-9 col-sm-9 col-xs-12 right_sidebar">
 				@foreach($typedata as $key => $values)
+				@if(count($values) > 0)
 				<div class="col-md-12 col-sm-12 col-xs-12 data_row">
 				 <h3 class="title-color margin_top">{{$key}}</h3>
 				 @foreach($values as $value)
 				 <div class="col-md-4 col-sm-4 col-xs-12 news_section ined_library_section">
-				 	@if($key == 'Video')
+				 	@if($key == 'video')
                        <iframe style="width: 100%; height: 150px;" src="{{$value->url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				 	@else
                        <img src="{{asset('admin/upload/library/'.$value->image)}}" class="img-responsive" style="width: 100%" alt="" />
@@ -22,6 +23,7 @@
 				</div>
 				@endforeach
 				</div>
+				@endif
 				@endforeach
 
 			</div>

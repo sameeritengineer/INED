@@ -23,9 +23,13 @@
       </li>
       <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">News and Events</span></a>
         <ul class="menu-content">
-            <li class="{{ in_array(Route::currentRouteName(), ['news.index','boards.edit']) ? 'active' : '' }}"><a href="{{route('news.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">News and Events</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['news.index','news.edit']) ? 'active' : '' }}"><a href="{{route('news.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">News and Events</span></a></li>
             <li class="{{ in_array(Route::currentRouteName(), ['news.create']) ? 'active' : '' }}"><a href="{{route('news.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add News and Events</span></a></li>
         </ul>
+      </li>
+      <li class="nav-item {{ in_array(Route::currentRouteName(), ['leads']) ? 'active' : '' }}"><a href="{{route('leads')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Leads</span></a>
+      </li>
+      <li class="nav-item {{ in_array(Route::currentRouteName(), ['subscribers']) ? 'active' : '' }}"><a href="{{route('subscribers')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Subscribers</span></a>
       </li>
     </ul>
   </div>

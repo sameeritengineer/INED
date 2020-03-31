@@ -54,7 +54,7 @@
                               <div class="form-group">
                                  <label for="projectinput2">Name <span class="required">*</span></label>
                                  <div class="controls">
-                                    <input type="text" id="projectinput1" required data-validation-required-message="This field is required" class="form-control" placeholder="Name" name="name">
+                                    <input type="text" id="contentinput1" required data-validation-required-message="This field is required" class="form-control" placeholder="Name" name="name">
                                  </div>
                               </div>
                            </div>
@@ -62,7 +62,7 @@
                               <div class="form-group">
                               	<label for="projectinput2">Slug <span class="required">*</span></label>
                               	<div class="controls">
-                                 <input type="text" id="projectinput2" required data-validation-required-message="This field is required" class="form-control" placeholder="Slug" name="slug">
+                                 <input type="text" id="contentinput2" required data-validation-required-message="This field is required" class="form-control" placeholder="Slug" name="slug">
                                 </div>
                               </div>
                            </div>

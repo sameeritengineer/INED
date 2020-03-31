@@ -1,5 +1,5 @@
 @extends('web.layouts.indexinner')
-@section('title','All Editorial Boards')
+@section('title','INED LIBRARY')
 @section('bannertitle','INED LIBRARY SUBJECT AREA')
 @section('content')
 @include('web.layouts.banner')
@@ -11,13 +11,20 @@
 
 					@foreach($categories as $cats)
 					<div class="col-md-6 col-sm-6 col-xs-12 news_section ined_library_section">
-						<a class="margin_top_10" href="#"><img src="{{asset('admin/upload/category/'.$cats->image)}}" class="img-responsive" style="width: 100%" alt="" /></a>
+						<a class="margin_top_10" href="{{route('web.ined-library-detail', ['categorySlug'=>$cats->slug])}}"><img src="{{asset('admin/upload/category/'.$cats->image)}}" class="img-responsive" style="width: 100%" alt="" /></a>
 						<h3 class="title-color">{{$cats->name}}</h3>
 						<div class="cate_seciton">
 							<ul>
 								@foreach($types[$cats->name] as $key => $value)
-								<li><a class="margin_top_10" href="#">{{$key}}</a>
-									<h5>({{$value}})</h5>
+								<!-- @php
+                                  if($value >=1 ){
+                                   $url = route('web.ined-library-single', ['categorySlug'=>$cats->slug,'typeSlug'=>$key]);
+                                  }else{
+                                    $url = '#';
+                                  }
+								@endphp -->
+								<li><a class="margin_top_10" href="{{route('web.ined-library-single', ['categorySlug'=>$cats->slug,'typeSlug'=>$key])}}">{{$key}}</a>
+									<h5>{{$value}}</h5>
 								</li>
 								@endforeach
 							</ul>
@@ -25,20 +32,7 @@
 					</div>
 					@endforeach
 
-					<div class="col-md-12 col-sm-12 col-xs-12 next_prev">
-					<?php 
-                      $links = $categories->links(); 
-    $patterns = '#\?page=#';
-
-    $replacements = '/page/';
-    $one = preg_replace($patterns, $replacements, $links);
-
-    $pattern2 = '#page/([1-9]+[0-9]*)/page/([1-9]+[0-9]*)#';
-    $replacements2 = 'page/$2';
-    $paginate_links = preg_replace($pattern2, $replacements2, $one);
-    echo $paginate_links;
-					?>
-				</div>
+					
 
 				</div>
 				<!-- <div class="col-md-12 col-sm-12 col-xs-12 next_prev">

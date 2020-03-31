@@ -1,5 +1,5 @@
 @extends('web.layouts.index')
-@section('title','Editorial Boards')
+@section('title','INEDSYS')
 @section('content')
 <div class="col-md-12 col-sm-12 col-xs-12 top-banner" id="banner">
     <div class="swiper-container">
@@ -9,7 +9,7 @@
                 <img src="{{asset('web/images/mob-banner.jpg')}}" alt="" class="img-responsive bannner-img visible-xs" />
                <div class="banner-cont text-center">
                    <h3 class="">Our Mission is to Create <br> a World Class Medical E-library for Anyone Anywhere</h3>
-                   <strong><a class="know-more-btn" href="ined-library.php"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
+                   <strong><a class="know-more-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
                </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-6 about_cont">
             We strive to bring together the best medical content from major publishers and medical leaders in their specialty, faculty from top training programs to create a large up-to-date training library for healthcare practitioners using fast, easy, effective online learning tools.
-			<a class="read_more_text padding-top-10" href="/about-us.php">Read More</a>
+			<a class="read_more_text padding-top-10" href="{{route('web.about-us')}}">Read More</a>
         </div>
     </div>
 </div>
@@ -40,10 +40,12 @@
                <!-- <p class="title-p-des">International Medical Education</p> -->
             </div>
             @foreach($categories as $cat)
+            <a href="{{route('web.ined-library-detail', ['categorySlug'=>$cat->slug])}}">
             <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
                 <img src="{{asset('admin/upload/category/'.$cat->image)}}" alt="{{$cat->alt}}" class="img-responsive" />
                 <div class="img_split">{{$cat->name}}</div>
             </div>
+            </a>
             @endforeach
         </div>
        <!-- <div class="view-all-btn"><a class="view-all" href="">View All</a></div> -->
@@ -88,23 +90,14 @@
                 <h3 class="section-title">NEWS &AMP; EVENTS</h3>
                 <p class="title-p-des">International Medical Education</p>
             </div>
+            @foreach($news as $value)
             <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
-                <a href="https://www.cdc.gov/coronavirus/2019-ncov/summary.html" target="_blank"><img src="{{asset('web/images/neews-and-events-1.png')}}" alt="" class="img-responsive" />
-                <h3 class="title-color">Coronavirus Disease 2019 (COVID-19)</h3></a>
-                <p class="date-font">March 14, 2020</p>
+                <a href="{{$value->url}}" target="_blank"><img src="{{asset('admin/upload/news/'.$value->image)}}" alt="{{$value->alt}}" class="img-responsive" />
+                <h3 class="title-color">{{$value->name}}</h3></a>
+                <p class="date-font">{{$value->created_at->format('d F, Y')}}</p>
             </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
-                 <a href="https://www.nature.com/articles/s41575-020-0281-0" target="_blank"><img src="{{asset('web/images/neews-and-events-2.png')}}" alt="" class="img-responsive" />
-                <h3 class="title-color">Bridging transplantation with beads</h3></a>
-                <p class="date-font">February 27, 2020</p>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
-               <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/joim.13035?referrer_access_token=wg2Ywye6-TPyn2nUx0JEB4ta6bR2k8jH0KrdpFOxC64w1hK7vUcGjLPUeSNTiOM_UcBtALP7Qhye9upkX_0SkTdePwTBjgn4AV_jnutnvTnx438R89exjehEgtX1SmkrAqxOEGdZtS0t0X0hYXAayA%3D%3D" target="_blank"><img src="{{asset('web/images/neews-and-events-3.png')}}" alt="" class="img-responsive" />
-                <h3 class="title-color">Ethnic inﬂuence on nonalcoholic fatty liver</h3></a>
-                <p class="date-font">January 10, 2020</p>
-            </div>
+            @endforeach
+ 
         </div>
     </div>
 </div>

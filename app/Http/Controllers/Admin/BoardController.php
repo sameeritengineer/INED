@@ -50,6 +50,9 @@ class BoardController extends Controller
             'slug' => 'required',
         ]);
         $params = $request->input();
+        if($params['sort'] == null){
+        $params['sort'] = 0;
+        }
         $success = true;
         $dbError = [];
         try {
@@ -146,6 +149,9 @@ class BoardController extends Controller
     {
         //
         $params = $request->input();
+        if($params['sort'] == null){
+        $params['sort'] = 0;
+        }
         $success = true;
         $dbError = [];
      try {

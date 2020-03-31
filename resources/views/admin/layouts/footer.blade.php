@@ -5,9 +5,6 @@
     </span>
   </p>
 </footer> -->
-<!-- BEGIN VENDOR JS-->
-<script src="{{asset('admin/app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
-<!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="{{asset('admin/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}"type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/vendors/js/tables/jquery.dataTables.min.js')}}" type="text/javascript"></script>

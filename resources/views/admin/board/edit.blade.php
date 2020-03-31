@@ -54,7 +54,7 @@
                               <div class="form-group">
                                  <label for="projectinput2">Name <span class="required">*</span></label>
                                  <div class="controls">
-                                    <input type="text" id="projectinput1" required data-validation-required-message="This field is required" class="form-control" placeholder="Name" name="name" value="{{ $boards->name }}">
+                                    <input type="text" id="contentinput1" required data-validation-required-message="This field is required" class="form-control" placeholder="Name" name="name" value="{{ $boards->name }}">
                                  </div>
                               </div>
                            </div>
@@ -62,7 +62,7 @@
                               <div class="form-group">
                               	<label for="projectinput2">Slug <span class="required">*</span></label>
                               	<div class="controls">
-                                 <input type="text" id="projectinput2" required data-validation-required-message="This field is required" class="form-control" placeholder="Slug" name="slug" value="{{ $boards->slug }}">
+                                 <input type="text" id="contentinput2" required data-validation-required-message="This field is required" class="form-control" placeholder="Slug" name="slug" value="{{ $boards->slug }}">
                                 </div>
                               </div>
                            </div>
@@ -215,6 +215,15 @@
 </script>
 <script>
 $(document).ready(function(){
+$("#contentinput1").keyup(function(){
+     var current = this.value;
+     var slug = current.toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'');
+        $("#contentinput2").val(slug);
+
+     
+});
   $('#category_select').on('change', function() {
     var c_id = this.value;
     if(c_id == ''){

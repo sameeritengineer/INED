@@ -2382,3 +2382,12 @@ span.social-icon {
     color: #ae272e;
     font-size: 17px;
 }
+
+
+/* smartit css */
+.ft-contect p.error {
+    color: red;
+}
+.ft-contect p.success {
+    color: green;
+}

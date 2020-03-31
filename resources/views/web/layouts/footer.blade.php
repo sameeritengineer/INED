@@ -17,26 +17,28 @@
            </div>
            <div class="col-md-6 col-sm-6 col-xs-12 ft-menu">
                <ul class="col-md-4 col-sm-4 col-xs-6">
-                    <h3><a href="editorial-boards.php">Home</h3>
-                    <li><a href="about-us.php">About Us</a></li>
+                    <h3><a href="{{route('web.home')}}">Home</h3>
+                    <li><a href="{{route('web.about-us')}}">About Us</a></li>
                     <li><a href="meet-the-team.php">Leadership</a></li>
                </ul>
                <ul class="col-md-4 col-sm-4 col-xs-6 ft-menu-2">
-                   <h3><a href="editorial-boards.php">Editorial board</a></h3>
-                   <li><a href="privacy-policy.php">Privacy Policy</a></li>
-                   <li><a href="terms-of-use.php">Terms of Use</a></li>
-                   <li><a href="cookie-policy.php">Cookie Policy</a></li>
+                   <h3><a href="{{route('web.all-editorial')}}">Editorial board</a></h3>
+                   <li><a href="{{route('web.privacy-policy')}}">Privacy Policy</a></li>
+                   <li><a href="{{route('web.terms-of-use')}}">Terms of Use</a></li>
+                   <!-- <li><a href="cookie-policy.php">Cookie Policy</a></li> -->
                </ul>
                <ul class="col-md-4 col-sm-4 col-xs-6 ft-menu-3 ft-menu-2">
-                   <h3><a href="news-and-events.php">News & Events</a></h3>
-                   <li><a href="contact.php">Contact Us</a></li>
-                   <li><a href="ined-library.php">Ined Library</a></li>
+                   <h3><a href="{{route('web.news-and-events')}}">News & Events</a></h3>
+                   <li><a href="{{route('web.contact-us')}}">Contact Us</a></li>
+                   <li><a href="{{route('web.ined-library')}}">Ined Library</a></li>
                    
                </ul>
            </div>
            <div class="col-md-3 col-sm-3 col-xs-12 ft-contect">
                <h3>Join Our Newsletter</h3>
-               <input type="email" class="ft-input form-control" placeholder="Email Address" name="">
+               <p class="error"></p>
+               <p class="success"></p>
+               <input id="subscribe" type="email" class="ft-input form-control" placeholder="Email Address" name="">
                <input type="submit" value="Subscribe" class="subscribe" name="">
            </div>
         </div>
@@ -51,7 +53,50 @@
 <script src="{{asset('web/js/swiper.js')}}" type="text/javascript"></script>
 <script src="{{asset('web/js/script.js')}}" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".subscribe").click(function(){
+    var email = $('#subscribe').val();
+    if(email == ''){
+      $('.ft-contect p.error').text('Please enter the email address'); 
+    }else{
+      var isemail = isEmail(email);
+      if(isemail == false){
+       $('.ft-contect p.error').text('Email is not valid'); 
+       }else{
+          
+          $.ajax({
+            url: "{{route('web.subscribe')}}",
+            type: "POST",
+            data: {
+                "_token": "{{csrf_token()}}",
+                "email": email
+            },
+            success: function(response) {
+              if(response.success == false){
+                $('.ft-contect p.error').show();
+                $('.ft-contect p.success').hide();
+                $('.ft-contect p.error').text(response.errors.email[0]);
+              }else{
+                $('.ft-contect p.success').show();
+                $('.ft-contect p.error').hide();
+                $('.ft-contect p.success').text('Subscribed succefully');
+                $('#subscribe').val('');
+              }
+            },
+        });
 
+       }
+    }
+    
+  });
+
+  function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+});
+</script>
 <script type="text/javascript">
   var swiper = new Swiper('#testimonial .swiper-container', {
   slidesPerView: 2,

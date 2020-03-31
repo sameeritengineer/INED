@@ -54,7 +54,7 @@
                               <div class="form-group">
                                  <label for="projectinput2">Category Name <span class="required">*</span></label>
                                  <div class="controls">
-                                    <input type="text" id="projectinput1" required data-validation-required-message="This field is required" class="form-control" placeholder="Category Name" name="cat_name">
+                                    <input type="text" id="contentinput1" required data-validation-required-message="This field is required" class="form-control" placeholder="Category Name" name="cat_name">
                                  </div>
                               </div>
                            </div>
@@ -62,7 +62,7 @@
                               <div class="form-group">
                               	<label for="projectinput2">Category Slug <span class="required">*</span></label>
                               	<div class="controls">
-                                 <input type="text" id="projectinput2" required data-validation-required-message="This field is required" class="form-control" placeholder="Category Slug" name="cat_slug">
+                                 <input type="text" id="contentinput2" required data-validation-required-message="This field is required" class="form-control" placeholder="Category Slug" name="cat_slug">
                                 </div>
                               </div>
                            </div>
@@ -198,6 +198,15 @@
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
   };
+  $(document).ready(function(){
+  $("#contentinput1").keyup(function(){
+     var current = this.value;
+     var slug = current.toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'');
+        $("#contentinput2").val(slug);   
+});
+  });
 </script>
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>

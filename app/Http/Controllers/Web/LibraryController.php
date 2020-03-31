@@ -36,10 +36,14 @@ class LibraryController extends BaseController
        $data['libraries'] = $libraryList;
        $data['categoryName'] = $getcategoryData->name;
        $data['categories'] = $categories;
-       if($gettypeData->id == 1){
+       if(count($data['libraries']) > 0){
+          if($gettypeData->id == 1){
            return view('web.library.video',$data);
+           }else{
+               return view('web.library.article',$data);
+           }
        }else{
-           return view('web.library.article',$data);
+           return view('web.library.coming',$data);
        }
     }
     public function detail($categorySlug)
@@ -48,13 +52,20 @@ class LibraryController extends BaseController
         $getcategoryData = Category::select('id','name')->where('slug',$categorySlug)->first();
         $content_types = ContentType::get();
         $typedata = [];
+        $count = 0;
         foreach($content_types as $types){
               $articleList = Library::where('status',1)->where('category_id',$getcategoryData->id)->where('content_type_id',$types->id)->get();
+              $count = $count+count($articleList);
               $typedata[$types->name] = $articleList;
         }
         $data['categories'] = $categories;
         $data['typedata'] = $typedata;
         $data['categoryName'] = $getcategoryData->name;
-        return view('web.library.detail',$data);
+        $data['count'] = $count;
+        if($data['count'] > 0){
+         return view('web.library.detail',$data);
+        }else{
+          return view('web.library.coming',$data);
+        }
     }
 }

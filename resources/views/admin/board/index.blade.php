@@ -56,7 +56,12 @@
                           <td>{{$board->name}}</td>
                           <td>{{$board->s_description}}</td>
                           <td><?php $category =  App\Board::find($board->id)->category;
-                          ?>{{$category->name}}</td>        
+                             if($category == null){
+                              $catName = '';
+                             }else{
+                              $catName = $category->name;
+                             }
+                          ?>{{$catName}}</td>        
                           <td>
                           	<a class="btn btn-outline-warning" href="{{ route('boards.edit',$board->id) }}">Edit</a>
                           </td>
@@ -70,6 +75,7 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Description</th>
+                          <th>Category</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
