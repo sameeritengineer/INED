@@ -2391,3 +2391,6 @@ span.social-icon {
 .ft-contect p.success {
     color: green;
 }
+.profile_section:nth-child(2n) .profile_name p {
+    text-align: right;
+}

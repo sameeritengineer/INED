@@ -15,7 +15,7 @@ class LibraryController extends BaseController
     {   
         $data = [];
         $typecount = [];
-        $categories = Category::select('id','name','slug','image','alt')->where('status', 1)->orderByRaw('home_sort')->simplePaginate(2);
+        $categories = Category::select('id','name','slug','image','alt')->where('status', 1)->orderByRaw('home_sort')->get();
         $content_types = ContentType::get();
         foreach($categories as $cats){
             foreach($content_types as $types){

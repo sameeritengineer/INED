@@ -15,7 +15,7 @@ of Hepatology training at the Post Graduate Institute of Medical Education and R
 		<h3 class="title-color">Categories</h3>
 		<ul>
 			@foreach($categories as $cat)
-			<li><a href="#"><i class="fa fa-angle-right"></i>{{$cat->name}}</a></li>
+			<li><a href="{{route('web.ined-library-detail', ['categorySlug'=>$cat->slug])}}"><i class="fa fa-angle-right"></i>{{$cat->name}}</a></li>
 			@endforeach
 		</ul>
 	</div>
