@@ -44,24 +44,24 @@
       <div class="content-header row"></div>
       	<div class="content-body">       
         	<div class="row">
-            <a href="#">
+            <a href="{{route('news.index')}}">
             <div class="col-xl-3 col-lg-6 col-xs-12">
             		<div class="card">
               			<div class="card-body">
                 			<div class="media">
                   				<div class="p-2 text-xs-center bg-primary bg-darken-2 media-left media-middle">
-                    				<i class="icon-grid font-large-2 white"></i>
+                    				<i class="fa fa-newspaper-o font-large-2 white"></i>
                   				</div>
                   				<div class="p-2 bg-gradient-x-primary white media-body">
-                    				<h5>Posts</h5>
-                    				<h5 class="text-bold-400"><i class="ft-plus"></i>5</h5>
+                    				<h5>News & Events</h5>
+                    				<h5 class="text-bold-400"><i class="ft-plus"></i>{{$count_news}}</h5>
                   				</div>
                				</div>
               			</div>
             		</div>
           		</div> 
               </a>
-              <a href="#">
+              <a href="{{route('libraries.index')}}">
               <div class="col-xl-3 col-lg-6 col-xs-12">
                 <div class="card">
                     <div class="card-body">
@@ -70,32 +70,32 @@
                             <i class="icon-list font-large-2 white"></i>
                           </div>
                           <div class="p-2 bg-gradient-x-danger white media-body">
-                            <h5>Roles</h5>
-                            <h5 class="text-bold-400"><i class="ft-plus"></i>14</h5>
+                            <h5>Content Library</h5>
+                            <h5 class="text-bold-400"><i class="ft-plus"></i>{{$count_library}}</h5>
                           </div>
                       </div>
                     </div>
                 </div>
               </div>   
               </a>
-              <a href="#">        		
+              <a href="{{route('categories.index')}}">        		
               <div class="col-xl-3 col-lg-6 col-xs-12">
                 <div class="card">
                     <div class="card-body">
                       <div class="media">
                           <div class="p-2 text-xs-center bg-warning bg-darken-2 media-left media-middle">
-                            <i class="icon-user-following font-large-2 white"></i>
+                            <i class="fa fa-list-alt font-large-2 white"></i>
                           </div>
                           <div class="p-2 bg-gradient-x-warning white media-body">
                             <h5>Categories</h5>
-                            <h5 class="text-bold-400"><i class="ft-plus"></i>6</h5>
+                            <h5 class="text-bold-400"><i class="ft-plus"></i>{{$count_categories}}</h5>
                           </div>
                       </div>
                     </div>
                 </div>
               </div> 
               </a>
-              <a href="#"> 
+              <a href="{{route('boards.index')}}"> 
               <div class="col-xl-3 col-lg-6 col-xs-12">
                 <div class="card">
                     <div class="card-body">
@@ -104,8 +104,8 @@
                             <i class="icon-user-unfollow font-large-2 white"></i>
                           </div>
                           <div class="p-2 bg-gradient-x-success white media-body">
-                            <h5>Pages</h5>
-                            <h5 class="text-bold-400"><i class="ft-plus"></i>6</h5>
+                            <h5>Editorial Board</h5>
+                            <h5 class="text-bold-400"><i class="ft-plus"></i>{{$board_count}}</h5>
                           </div>
                       </div>
                     </div>

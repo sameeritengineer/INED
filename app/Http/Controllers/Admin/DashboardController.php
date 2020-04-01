@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Lead;
 use App\Subscriber;
+use App\Category;
+use App\News;
+use App\Library;
+use App\Board;
 use Response;
 
 class DashboardController extends Controller
@@ -13,7 +17,16 @@ class DashboardController extends Controller
     //
     public function dashboard()
     {	
-      return view('admin.dashboard');
+      $data = [];
+      $categories = Category::get();
+      $news = News::get();
+      $library = Library::get();
+      $boards = Board::get();
+      $data['count_categories'] = count($categories);
+      $data['count_news'] = count($news);
+      $data['count_library'] = count($library);
+      $data['board_count'] = count($boards);
+      return view('admin.dashboard',$data);
     }
     public function vdashboard()
     {	

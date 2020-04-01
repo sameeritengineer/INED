@@ -57,6 +57,7 @@ Route::prefix('ined_admin')->middleware(['auth','can:isAllowed,"Admin:"'])->grou
        Route::resource('categories','Admin\CategoryController');
        Route::resource('libraries','Admin\LibraryController');
        Route::resource('boards','Admin\BoardController');
+       Route::resource('team','Admin\TeamController');
        Route::resource('news','Admin\NewsController');
        Route::post('subcategories','Admin\CategoryController@subcategories')->name('subcategories');
 });

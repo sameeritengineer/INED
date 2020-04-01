@@ -1,7 +1,7 @@
 <div data-scroll-to-active="true" class="main-menu menu-fixed menu-accordion menu-shadow menu-dark">
   <div class="main-menu-content">
     <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-      <li class="nav-item"><a href=""><i class="fa fa-dashboard"></i><span data-i18n="" class="menu-title">DASHBOARD</span></a></li>
+      <li class="nav-item"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i><span data-i18n="" class="menu-title">DASHBOARD</span></a></li>
 
       <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">CATEGORY</span></a>
     	  <ul class="menu-content">
@@ -27,6 +27,12 @@
             <li class="{{ in_array(Route::currentRouteName(), ['news.create']) ? 'active' : '' }}"><a href="{{route('news.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add News and Events</span></a></li>
         </ul>
       </li>
+      <!-- <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Team</span></a>
+        <ul class="menu-content">
+            <li class="{{ in_array(Route::currentRouteName(), ['team.index','team.edit']) ? 'active' : '' }}"><a href="{{route('team.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Team</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['team.create']) ? 'active' : '' }}"><a href="{{route('team.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Team</span></a></li>
+        </ul>
+      </li> -->
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['leads']) ? 'active' : '' }}"><a href="{{route('leads')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Leads</span></a>
       </li>
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['subscribers']) ? 'active' : '' }}"><a href="{{route('subscribers')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Subscribers</span></a>
