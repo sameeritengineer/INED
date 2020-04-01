@@ -1,6 +1,6 @@
 @extends('web.layouts.indexinner')
 @section('title','INED LIBRARY')
-@section('bannertitle','INED LIBRARY SUBJECT AREA')
+@section('bannertitle','INED LIBRARY')
 @section('content')
 @include('web.layouts.banner')
 <div class="col-md-12 col-sm-12 col-xs-12 contact">

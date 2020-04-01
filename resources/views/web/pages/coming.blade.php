@@ -1,7 +1,6 @@
 @extends('web.layouts.indexinner')
-@section('title','All Editorial Boards')
-@section('bannertitle','INED LIBRARY')
-@section('innerbannertitle', $categoryName)
+@section('title','LEADERSHIP')
+@section('bannertitle','LEADERSHIP')
 @section('content')
 @include('web.layouts.banner')
 <div class="wrap1 col-md-12 col-sm-12 col-xs-12">

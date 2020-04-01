@@ -36,6 +36,7 @@ Route::group([
   Route::get('terms-of-use', 'HomeController@term')->name('terms-of-use');
   Route::get('contact-us', 'ContactController@index')->name('contact-us');
   Route::get('news-and-events', 'NewsController@index')->name('news-and-events');
+  Route::get('meet-the-team', 'HomeController@team')->name('meet-the-team');
   Route::post('contact-us', 'ContactController@store')->name('contact-submit');
   Route::post('subscribe', 'ContactController@subscribe')->name('subscribe');
   /* Pages Route Ends */

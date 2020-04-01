@@ -8,7 +8,7 @@
                 <img src="{{asset('web/images/main-banner.jpg')}}" alt="" class="img-responsive bannner-img hidden-xs" />
                 <img src="{{asset('web/images/mob-banner.jpg')}}" alt="" class="img-responsive bannner-img visible-xs" />
                <div class="banner-cont text-center">
-                   <h3 class="">Our Mission is to Create <br> a World Class Medical E-library for Anyone Anywhere</h3>
+                   <h3 class=""><strong>Our Mission is to Create a World Class <br> Medical E-library for Anyone Anywhere</strong></h3>
                    <strong><a class="know-more-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
                </div>
             </div>
@@ -94,7 +94,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
                 <a href="{{$value->url}}" target="_blank"><img src="{{asset('admin/upload/news/'.$value->image)}}" alt="{{$value->alt}}" class="img-responsive" />
                 <h3 class="title-color">{{$value->name}}</h3></a>
-                <p class="date-font">{{$value->created_at->format('d F, Y')}}</p>
+                <p class="date-font">{{ date('d F, Y', strtotime(trim($value->date))) }}</p>
             </div>
             @endforeach
  

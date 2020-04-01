@@ -28,6 +28,7 @@ class CreateNewsTable extends Migration
             $table->text('meta_description')->nullable();
             $table->integer('sort')->default('0')->nullable();
             $table->integer('status')->default(1);
+            $table->date('date');
             $table->timestamps();
         });
     }

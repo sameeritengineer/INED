@@ -19,10 +19,10 @@ of Hepatology training at the Post Graduate Institute of Medical Education and R
 			@endforeach
 		</ul>
 	</div>
-	<div class="sidebar_category">
+	<!-- <div class="sidebar_category">
 		<ul>
 			<li><a href="#"><i class="fa fa-angle-right"></i> Meet our team</a></li>
 			<li><a href="#"><i class="fa fa-angle-right"></i> Recent News</a></li>
 		</ul>
-	</div>
+	</div> -->
 </div>

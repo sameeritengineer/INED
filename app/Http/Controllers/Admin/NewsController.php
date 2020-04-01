@@ -86,7 +86,8 @@ class NewsController extends Controller
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
                 'sort' => trim($params['sort']),
-                'status' => trim($params['status'])
+                'status' => trim($params['status']),
+                'date' => date("Y-m-d", strtotime(trim($params['date'])) )
             ]);
             }
          }catch (Throwable $e) {
@@ -175,7 +176,8 @@ class NewsController extends Controller
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
                 'sort' => trim($params['sort']),
-                'status' => trim($params['status'])
+                'status' => trim($params['status']),
+                'date' => date("Y-m-d", strtotime(trim($params['date'])) )
                     ];
             $newsdToBeUpdated->update($updateFields);
          }catch (Throwable $e) {

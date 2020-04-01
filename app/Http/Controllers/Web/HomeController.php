@@ -14,7 +14,7 @@ class HomeController extends BaseController
     {   $data = [];
         $categories = Category::select('id','name','slug','image','alt')->where('status', 1)->orderByRaw('home_sort')->limit(6)->get();
         $boards = Board::select('id','name','slug','image','alt','s_description','designation')->where('status', 1)->where('h_status', 1)->orderByRaw('sort')->limit(6)->get();
-        $news = News::select('id','name','slug','image','alt','url','created_at')->where('status', 1)->orderByRaw('sort')->limit(3)->get();
+        $news = News::select('id','name','slug','image','alt','url','date')->where('status', 1)->orderByRaw('sort')->limit(3)->get();
         $data['categories'] = $categories;
         $data['boards'] = $boards;
         $data['news'] = $news;
@@ -41,6 +41,10 @@ class HomeController extends BaseController
     public function term()
     {
       return view('web.pages.term');
-    }     
+    }  
+    public function team()
+    {
+      return view('web.pages.coming');
+    }      
 
 }

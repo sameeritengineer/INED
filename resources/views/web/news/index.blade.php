@@ -12,7 +12,7 @@
 					@foreach($news as $value)
 					<div class="col-md-6 col-sm-6 col-xs-12 news_section">
 						<a class="" href="{{$value->url}}" target="_blank"><img src="{{asset('admin/upload/news/'.$value->image)}}" class="img-responsive" style="width: 100%" alt=""></a>
-						<div class="blog_date">{{$value->created_at->format('d F, Y')}}</div>
+						<div class="blog_date">{{ date('d F, Y', strtotime(trim($value->date))) }}</div>
 						<h3 class="title-color">{{$value->name}}</h3>
 												<a class="a_href_btn margin_top_10" href="{{$value->url}}" target="_blank">Read More</a>
 					</div>

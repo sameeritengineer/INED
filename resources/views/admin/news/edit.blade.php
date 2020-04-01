@@ -51,7 +51,7 @@
                      <div class="form-body">
                         <h4 class="form-section"><i class="ft-user"></i> New News & Events</h4>
                         <div class="row">
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                               <div class="form-group">
                                  <label for="projectinput2">Name <span class="required">*</span></label>
                                  <div class="controls">
@@ -59,7 +59,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                               <div class="form-group">
                               	<label for="projectinput2">Slug <span class="required">*</span></label>
                               	<div class="controls">
@@ -67,7 +67,7 @@
                                 </div>
                               </div>
                            </div>
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                               <div class="form-group radio-form">
                                 <label class="w-100 float-left" for="projectinput5">Status</label>
                                <span>
@@ -80,10 +80,18 @@
                               </span>
                               </div>
                            </div>
-                           <div class="col-md-3">
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
                               <div class="form-group">
                                  <label for="projectinput1">Sort</label>
                                  <input type="number" id="projectinput1" class="form-control" placeholder="Sort" name="sort" value="{{ $news->sort }}">
+                              </div>
+                           </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="projectinput1">Date</label>
+                                  <input id="datepicker" name="date" value="{{ $news->date }}" width="376" />
                               </div>
                            </div>
                         </div>
@@ -189,6 +197,11 @@
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
   };
+  $(document).ready(function(){
+   $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+  });
 </script>
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>

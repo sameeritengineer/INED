@@ -150,3 +150,10 @@ li.nav-item.active a {
     background: #2a7d15 !important;
     color: #fff !important;
 }
+.gj-datepicker [role=right-icon] {
+    cursor: pointer;
+    display: flex;
+}
+.gj-datepicker-bootstrap [role=right-icon] button {
+    padding: 20px;
+}

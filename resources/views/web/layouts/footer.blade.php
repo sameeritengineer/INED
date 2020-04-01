@@ -19,7 +19,7 @@
                <ul class="col-md-4 col-sm-4 col-xs-6">
                     <h3><a href="{{route('web.home')}}">Home</h3>
                     <li><a href="{{route('web.about-us')}}">About Us</a></li>
-                    <li><a href="meet-the-team.php">Leadership</a></li>
+                    <li><a href="{{route('web.meet-the-team')}}">Leadership</a></li>
                </ul>
                <ul class="col-md-4 col-sm-4 col-xs-6 ft-menu-2">
                    <h3><a href="{{route('web.all-editorial')}}">Editorial board</a></h3>
