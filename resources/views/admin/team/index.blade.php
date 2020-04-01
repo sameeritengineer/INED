@@ -95,15 +95,15 @@
         </button>
         <label class="modal-title text-text-bold-600" id="myModalLabel33">Delete Team </label>
       </div>
-      <form action="{{ route('boards.destroy',1) }}" id="deleteBoardForm" method="POST" novalidate>
+      <form action="{{ route('team.destroy',1) }}" id="deleteTeamForm" method="POST" novalidate>
         @method('DELETE')
         @csrf
         <div class="modal-body">
-          <h4>Are you sure want to delete this Editorial Board <span id="text"></span>?</h4>
+          <h4>Are you sure want to delete this Team Member <span id="text"></span>?</h4>
         </div>
         <div class="modal-footer">
           <input type="reset" class="btn btn-outline-secondary btn-lg clear" data-dismiss="modal" value="Close">
-          <input type="submit" class="btn btn-outline-primary btn-lg" id="deleteboard" value="Delete">
+          <input type="submit" class="btn btn-outline-primary btn-lg" id="deleteteam" value="Delete">
         </div>
       </form>
     </div>
@@ -111,12 +111,12 @@
 </div>
 <script>
   
-function deleteboard(id,name)
+function deleteteam(id,name)
 {
   var name = $('#deleteForm').find('#text').text(name);
-  var url = '{{ route("boards.destroy", ":id") }}';
+  var url = '{{ route("team.destroy", ":id") }}';
   url = url.replace(':id', id);
-  $('#deleteBoardForm').attr('action', url);
+  $('#deleteTeamForm').attr('action', url);
   $("#deleteForm").modal("show");
 }
 

@@ -36,7 +36,7 @@ Route::group([
   Route::get('terms-of-use', 'HomeController@term')->name('terms-of-use');
   Route::get('contact-us', 'ContactController@index')->name('contact-us');
   Route::get('news-and-events', 'NewsController@index')->name('news-and-events');
-  Route::get('meet-the-team', 'HomeController@team')->name('meet-the-team');
+  Route::get('meet-the-team', 'TeamController@index')->name('meet-the-team');
   Route::post('contact-us', 'ContactController@store')->name('contact-submit');
   Route::post('subscribe', 'ContactController@subscribe')->name('subscribe');
   /* Pages Route Ends */
@@ -58,6 +58,7 @@ Route::prefix('ined_admin')->middleware(['auth','can:isAllowed,"Admin:"'])->grou
        Route::resource('libraries','Admin\LibraryController');
        Route::resource('boards','Admin\BoardController');
        Route::resource('team','Admin\TeamController');
+       Route::resource('member','Admin\MemberController');
        Route::resource('news','Admin\NewsController');
        Route::post('subcategories','Admin\CategoryController@subcategories')->name('subcategories');
 });

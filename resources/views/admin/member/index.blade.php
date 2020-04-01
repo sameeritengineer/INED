@@ -1,11 +1,11 @@
 @extends('admin.layouts.index')
-@section('title','News & Events')
+@section('title','All Members')
 @section('content')
 <div class="app-content content container-fluid load">
   <div class="content-wrapper data">
       <div class="content-header row">
         <div class="content-header-left col-md-6 col-xs-12 mb-2">
-        	<h3 class="content-header-title mb-0">News & Events</h3>
+        	<h3 class="content-header-title mb-0">Our Members</h3>
     	</div>  
     	<div class="content-body">
     		<section class="">
@@ -43,21 +43,21 @@
                         <tr>
                           <th>#</th>
                           <th>Name</th>
-                          <th>Description</th>
+                          <th>image</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
                       </thead>
                       <tbody>
-                      	@foreach($news as $value)
+                      	@foreach($members as $member)
                         <tr>                  
                           <td>{{$loop->iteration}}</td>
-                          <td>{{$value->name}}</td>
-                          <td>{{$value->description}}</td>        
+                          <td>{{$member->name}}</td>
+                          <td><img src="{{asset('admin/upload/member/'.$member->image)}}" width="100"/></td>         
                           <td>
-                          	<a class="btn btn-outline-warning" href="{{ route('news.edit',$value->id) }}">Edit</a>
+                          	<a class="btn btn-outline-warning" href="{{ route('member.edit',$member->id) }}">Edit</a>
                           </td>
-                          <td><button type="button" class="btn btn-outline-warning" onclick="deletenews({{$value->id}},'{{$value->name}}')"><i class="fa fa-trash"></i></button></td> 
+                          <td><button type="button" class="btn btn-outline-warning" onclick="deletemember({{$member->id}},'{{$member->name}}')"><i class="fa fa-trash"></i></button></td> 
                           <!-- <td><button type="button" class="btn btn-outline-warning">Delete</button></td> -->
                         </tr>
                         @endforeach
@@ -66,7 +66,7 @@
                         <tr>
                           <th>#</th>
                           <th>Name</th>
-                          <th>Description</th>
+                          <th>image</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
@@ -90,17 +90,17 @@
         <button type="button" class="close clear" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <label class="modal-title text-text-bold-600" id="myModalLabel33">Delete Category</label>
+        <label class="modal-title text-text-bold-600" id="myModalLabel33">Delete Team </label>
       </div>
-      <form action="{{ route('news.destroy',1) }}" id="deleteNewsForm" method="POST" novalidate>
+      <form action="{{ route('member.destroy',1) }}" id="deleteMemberForm" method="POST" novalidate>
         @method('DELETE')
         @csrf
         <div class="modal-body">
-          <h4>Are you sure want to delete this News & Event <span id="text"></span>?</h4>
+          <h4>Are you sure want to delete this Member <span id="text"></span>?</h4>
         </div>
         <div class="modal-footer">
           <input type="reset" class="btn btn-outline-secondary btn-lg clear" data-dismiss="modal" value="Close">
-          <input type="submit" class="btn btn-outline-primary btn-lg" id="deletecategory" value="Delete">
+          <input type="submit" class="btn btn-outline-primary btn-lg" id="deleteteam" value="Delete">
         </div>
       </form>
     </div>
@@ -108,12 +108,12 @@
 </div>
 <script>
   
-function deletenews(id,name)
+function deletemember(id,name)
 {
   var name = $('#deleteForm').find('#text').text(name);
-  var url = '{{ route("news.destroy", ":id") }}';
+  var url = '{{ route("member.destroy", ":id") }}';
   url = url.replace(':id', id);
-  $('#deleteNewsForm').attr('action', url);
+  $('#deleteMemberForm').attr('action', url);
   $("#deleteForm").modal("show");
 }
 

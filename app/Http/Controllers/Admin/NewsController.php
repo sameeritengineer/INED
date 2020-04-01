@@ -203,5 +203,7 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         //
+        $news->delete();
+        return redirect()->back()->with('success','News & Event Deleted Succesfully');
     }
 }

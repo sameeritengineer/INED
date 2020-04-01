@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Team;
-use App\Category;
+use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TeamController extends Controller
+class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class TeamController extends Controller
     public function index()
     {
         //
-        $teams = Team::get();
-        return view('admin.team.index',compact('teams'));
+        $members = Member::get();
+        return view('admin.member.index',compact('members'));
     }
 
     /**
@@ -29,10 +28,7 @@ class TeamController extends Controller
     public function create()
     {
         //
-        $data = [];
-        $categories = Category::where('cat_parent_id',0)->get();
-        $data['categories'] = $categories;
-        return view('admin.team.create',$data);
+        return view('admin.member.create');
     }
 
     /**
@@ -56,13 +52,13 @@ class TeamController extends Controller
         $dbError = [];
         try {
 
-        $teamExists = Team::where('name', $params['name'])->get()->first();
+        $memberExists = Member::where('name', $params['name'])->get()->first();
 
-            if ($teamExists) {
+            if ($memberExists) {
                 $success = false;
                 $dbError = [
                     'error' => '',
-                    'msg' => "Team Member already exists"
+                    'msg' => "Member already exists"
                 ];
             }else{
             if ($request->hasFile('image'))
@@ -71,21 +67,16 @@ class TeamController extends Controller
                     $filename  = $file->getClientOriginalName();
                     $extension = $file->getClientOriginalExtension();
                     $picture   = date('His').'-'.$filename;
-                    $uploadSuccess = $file->move(public_path('admin/upload/team'), $picture);
+                    $uploadSuccess = $file->move(public_path('admin/upload/member'), $picture);
               }else{
                     $picture = 'dummy.jpg';
               }
-              $team = Team::create([
+              $member = Member::create([
                 'name' => trim($params['name']),
                 'slug' => trim($params['slug']),
-                'education' => trim($params['education']),
-                'designation' => trim($params['designation']),
-                'location' => trim($params['location']),
                 'description' => trim($params['description']),
                 'alt' => trim($params['alt']),
                 'image' => $picture,
-                'category_id' => $params['c_id'],
-                'subcategory_id' => $params['s_id'],
                 'meta_title' => trim($params['meta_title']),
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
@@ -97,24 +88,24 @@ class TeamController extends Controller
                 $success = false;
                 $dbError = [
                     'error' => $e->errorInfo,
-                    'msg' => 'Can\'t create new Team Member'
+                    'msg' => 'Can\'t create new Member'
                 ];
             }
          //dd($dbError);
         if($success == true){
-          return redirect()->back()->with('success','Team Member Created Succesfully');
+          return redirect()->back()->with('success','Member Created Succesfully');
         }else{
           return redirect()->back()->with('error', $dbError['msg']);
-        } 
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Team  $team
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function show(Member $member)
     {
         //
     }
@@ -122,32 +113,28 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Team  $team
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function edit(Team $team)
+    public function edit(Member $member)
     {
         //
         $data = [];
-        $categories = Category::where('cat_parent_id',0)->get();
-        $subcategories = Category::where('cat_parent_id',$team->category_id)->get();
-        $data['teams'] = $team;
-        $data['categories'] = $categories;
-        $data['subcategories'] = $subcategories;
-        return view('admin.team.edit',$data);
+        $data['members'] = $member;
+        return view('admin.member.edit',$data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Team  $team
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $teamId)
+    public function update(Request $request,$memberId)
     {
         //
-         $params = $request->input();
+        $params = $request->input();
         if($params['sort'] == null){
         $params['sort'] = 0;
         }
@@ -155,7 +142,7 @@ class TeamController extends Controller
         $dbError = [];
      try {
 
-               $teamToBeUpdated = Team::find($teamId);
+               $memberToBeUpdated = Member::find($memberId);
                //dd($libraryToBeUpdated);
                if ($request->hasFile('image'))
               {
@@ -163,37 +150,32 @@ class TeamController extends Controller
                     $filename  = $file->getClientOriginalName();
                     $extension = $file->getClientOriginalExtension();
                     $picture   = date('His').'-'.$filename;
-                    $uploadSuccess = $file->move(public_path('admin/upload/team'), $picture);
+                    $uploadSuccess = $file->move(public_path('admin/upload/member'), $picture);
               }else{
-                    $picture = $teamToBeUpdated->image;
+                    $picture = $memberToBeUpdated->image;
               }
                 $updateFields = [
                 'name' => trim($params['name']),
                 'slug' => trim($params['slug']),
-                'education' => trim($params['education']),
-                'designation' => trim($params['designation']),
-                'location' => trim($params['location']),
                 'description' => trim($params['description']),
                 'alt' => trim($params['alt']),
                 'image' => $picture,
-                'category_id' => $params['c_id'],
-                'subcategory_id' => $params['s_id'],
                 'meta_title' => trim($params['meta_title']),
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
                 'sort' => trim($params['sort']),
                 'status' => trim($params['status']),
                     ];
-            $teamToBeUpdated->update($updateFields);
+            $memberToBeUpdated->update($updateFields);
          }catch (Throwable $e) {
                 $success = false;
                 $dbError = [
                     'error' => $e->errorInfo,
-                    'msg' => 'Can\'t Update Team Member'
+                    'msg' => 'Can\'t Update Member'
                 ];
             }
         if($success == true){
-          return redirect()->back()->with('success','Team Member Updated Succesfully');
+          return redirect()->back()->with('success','Member Updated Succesfully');
         }else{
           return redirect()->back()->with('error', $dbError['msg']);
         } 
@@ -202,13 +184,13 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Team  $team
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Team $team)
+    public function destroy(Member $member)
     {
         //
-        $team->delete();
-        return redirect()->back()->with('success','Team Member Deleted Succesfully');
+        $member->delete();
+        return redirect()->back()->with('success','Member Deleted Succesfully');
     }
 }

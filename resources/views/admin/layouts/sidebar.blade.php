@@ -27,12 +27,18 @@
             <li class="{{ in_array(Route::currentRouteName(), ['news.create']) ? 'active' : '' }}"><a href="{{route('news.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add News and Events</span></a></li>
         </ul>
       </li>
-      <!-- <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Team</span></a>
+      <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Team Members</span></a>
         <ul class="menu-content">
-            <li class="{{ in_array(Route::currentRouteName(), ['team.index','team.edit']) ? 'active' : '' }}"><a href="{{route('team.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Team</span></a></li>
-            <li class="{{ in_array(Route::currentRouteName(), ['team.create']) ? 'active' : '' }}"><a href="{{route('team.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Team</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['team.index','team.edit']) ? 'active' : '' }}"><a href="{{route('team.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Team Members</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['team.create']) ? 'active' : '' }}"><a href="{{route('team.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Team Member</span></a></li>
         </ul>
-      </li> -->
+      </li>
+      <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Our Members</span></a>
+        <ul class="menu-content">
+            <li class="{{ in_array(Route::currentRouteName(), ['member.index','member.edit']) ? 'active' : '' }}"><a href="{{route('member.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Our Members</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['member.create']) ? 'active' : '' }}"><a href="{{route('member.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Member</span></a></li>
+        </ul>
+      </li>
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['leads']) ? 'active' : '' }}"><a href="{{route('leads')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Leads</span></a>
       </li>
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['subscribers']) ? 'active' : '' }}"><a href="{{route('subscribers')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Subscribers</span></a>
