@@ -59,7 +59,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="col-md-4">
+                           <div class="col-md-3">
                               <div class="form-group">
                               	<label for="projectinput2">Slug <span class="required">*</span></label>
                               	<div class="controls">
@@ -67,7 +67,7 @@
                                 </div>
                               </div>
                            </div>
-                           <div class="col-md-4">
+                           <div class="col-md-3">
                               <div class="form-group radio-form">
                                 <label class="w-100 float-left" for="projectinput5">Status</label>
                                <span>
@@ -78,6 +78,15 @@
                               <input type="radio" id="test2" name="status" value="0" {{$news->status==0?'checked':''}}>
                               <label for="test2"><span>Disable</span></label>
                               </span>
+                              </div>
+                           </div>
+                           <div class="col-md-2">
+                              <div class="form-group">
+                                <label for="projectinput2">Upcoming</label>
+                                <div class="controls">
+                                  <input type="hidden" name="upcoming" value="0" checked="checked">
+                                 <input type="checkbox" name="upcoming" id="custom7" value="{{$news->upcoming}}" {{$news->upcoming==1?'checked':''}}> <label for="custom7">Upcoming</label>
+                                </div>
                               </div>
                            </div>
                         </div>
@@ -99,7 +108,7 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label for="projectinput8">Description</label>
-                                 <textarea id="summary-ckeditor" rows="5" class="form-control" name="description" placeholder="Description">{{ $news->description }}</textarea>
+                                 <textarea id="summary-ckeditor" rows="5" class="form-control editor" name="description" placeholder="Description">{{ $news->description }}</textarea>
                               </div>
                            </div>
                         </div>
@@ -173,7 +182,7 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label for="projectinput8">Meta Description</label>
-                                 <textarea id="summary-ckeditor1" rows="5" class="form-control" name="meta_description" placeholder="Meta Description">{{ $news->meta_description }}</textarea>
+                                 <textarea id="summary-ckeditor1" rows="5" class="form-control editor" name="meta_description" placeholder="Meta Description">{{ $news->meta_description }}</textarea>
                               </div>
                            </div>
                         </div>
@@ -198,6 +207,9 @@
     output.src = URL.createObjectURL(event.target.files[0]);
   };
 $(document).ready(function(){
+  $('#custom7').on('change', function(){
+   this.value = this.checked ? 1 : 0;
+}).change();
   $("#contentinput1").keyup(function(){
      var current = this.value;
      var slug = current.toLowerCase()
@@ -209,10 +221,5 @@ $(document).ready(function(){
             uiLibrary: 'bootstrap4'
         });
   });
-</script>
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'summary-ckeditor' );
-    CKEDITOR.replace( 'summary-ckeditor1' );
 </script>
 @endsection

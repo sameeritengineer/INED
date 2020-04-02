@@ -59,7 +59,12 @@
                           <td><?php $type =  App\Library::find($lib->id)->content_type;
                           ?>{{$type->name}}</td>
                             <td><?php $category =  App\Library::find($lib->id)->category;
-                          ?>{{$category->name}}</td>
+                            if($category == null){
+                              $catName = '';
+                             }else{
+                              $catName = $category->name;
+                             }
+                          ?>{{$catName}}</td>
                           <td>
                           	<a class="btn btn-outline-warning" href="{{ route('libraries.edit',$lib->id) }}">Edit</a>
                           </td>

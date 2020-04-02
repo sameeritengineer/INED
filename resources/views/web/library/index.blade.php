@@ -40,7 +40,7 @@
 					<a class="margin_left_20px" href="#"> NEXT <i class="fa fa-angle-right"></i></a> 
 				</div> -->
 			</div>
-			@include('web.layouts.sidebar')
+			@include('web.layouts.sidebar.ined-sidebar')
 		</div>
 	</div>
 </div>

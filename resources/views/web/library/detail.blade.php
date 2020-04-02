@@ -44,7 +44,7 @@
 					@endphp
 
 			</div>
-			@include('web.layouts.sidebar')
+			@include('web.layouts.sidebar.ined-sidebar')
 		</div>
 	</div>
 </div>

@@ -118,6 +118,31 @@ $(document).ready(function(){
   }
 });
 
+ var swiper = new Swiper('#news_events_slider .swiper-container', {
+  slidesPerView: 3,
+  //centeredSlides: true,
+  spaceBetween: 30,
+  pagination: {
+    el: '#news_events_slider .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '#news_events_slider .swiper-button-next',
+    prevEl: '#news_events_slider .swiper-button-prev',
+  },
+  autoplay: 
+    {
+      delay: 5000,
+    },
+   loop: true,
+
+  breakpoints: {
+    1170: {
+      slidesPerView: 1,
+    }
+  }
+});
+
   var swiper = new Swiper('#our_member_slider .swiper-container', {
   slidesPerView: 4,
   //centeredSlides: true,

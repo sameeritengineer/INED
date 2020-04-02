@@ -30,7 +30,7 @@
 @endforeach
 
 			</div>
-			@include('web.layouts.sidebar')
+			@include('web.layouts.sidebar.board-sidebar')
 		</div>
 	</div>
 </div>

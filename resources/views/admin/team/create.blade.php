@@ -111,7 +111,7 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label for="projectinput8">Description</label>
-                                 <textarea id="summary-ckeditor" rows="5" class="form-control" name="description" placeholder=" Description"></textarea>
+                                 <textarea id="summary-ckeditor" rows="5" class="form-control editor" name="description" placeholder=" Description"></textarea>
                               </div>
                            </div>
                         </div>
@@ -183,7 +183,7 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label for="projectinput8">Meta Description</label>
-                                 <textarea id="summary-ckeditor1" rows="5" class="form-control" name="meta_description" placeholder="Meta Description"></textarea>
+                                 <textarea id="summary-ckeditor1" rows="5" class="form-control editor" name="meta_description" placeholder="Meta Description"></textarea>
                               </div>
                            </div>
                         </div>
@@ -238,10 +238,5 @@ $(document).ready(function(){
     }
   });
 });
-</script>
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'summary-ckeditor' );
-    CKEDITOR.replace( 'summary-ckeditor1' );
 </script>
 @endsection

@@ -87,6 +87,7 @@ class NewsController extends Controller
                 'meta_description' => trim($params['meta_description']),
                 'sort' => trim($params['sort']),
                 'status' => trim($params['status']),
+                'upcoming' => trim($params['upcoming']),
                 'date' => date("Y-m-d", strtotime(trim($params['date'])) )
             ]);
             }
@@ -177,6 +178,7 @@ class NewsController extends Controller
                 'meta_description' => trim($params['meta_description']),
                 'sort' => trim($params['sort']),
                 'status' => trim($params['status']),
+                'upcoming' => trim($params['upcoming']),
                 'date' => date("Y-m-d", strtotime(trim($params['date'])) )
                     ];
             $newsdToBeUpdated->update($updateFields);

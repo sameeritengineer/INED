@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Library;
+use App\Board;
+use App\News;
+use App\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -203,15 +207,22 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
-        // if($category->delete()){
-        //  if($category->cat_parent_id == 0){
-        //   Board::where('category_id', $category->id)->update(array('category_id' => NULL,'subcategory_id' => NULL));
-        //   }else{
-        //   Board::where('subcategory_id', $category->id)->update(array('subcategory_id' => NULL));  
-        //   }
-        // }
+        //dd($category);
+        if($category->delete()){
+         if($category->cat_parent_id == 0){
+          Board::where('category_id', $category->id)->update(array('category_id' => NULL,'subcategory_id' => NULL));
+          Library::where('category_id', $category->id)->update(array('category_id' => NULL,'subcategory_id' => NULL));
+          News::where('category_id', $category->id)->update(array('category_id' => NULL,'subcategory_id' => NULL));
+          Team::where('category_id', $category->id)->update(array('category_id' => NULL,'subcategory_id' => NULL));
+          }else{
+          Board::where('subcategory_id', $category->id)->update(array('subcategory_id' => NULL));  
+          Library::where('subcategory_id', $category->id)->update(array('subcategory_id' => NULL));
+          News::where('subcategory_id', $category->id)->update(array('subcategory_id' => NULL));
+          Team::where('subcategory_id', $category->id)->update(array('subcategory_id' => NULL));
+          }
+        }
 
-        $category->delete();
+        //$category->delete();
         return redirect()->back()->with('success','Category Deleted Succesfully');
     }
     public function subcategories(Request $request)

@@ -70,7 +70,6 @@
                         <p class="testimonial_p_profile"><b>{{$board->designation}}</b></p>
                         <p>{{ $board->s_description }}</p>
                         <a class="read_more_text" href="{{route('web.all-editorial', $board->slug)}}">Read More</a>
-                        </p>
                     </div>
                 </div>
             @endforeach
@@ -90,13 +89,23 @@
                 <h3 class="section-title">NEWS &AMP; EVENTS</h3>
                 <p class="title-p-des">International Medical Education</p>
             </div>
+            <div id="news_events_slider" class="col-md-12 col-sm-12 col-xs-12">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
             @foreach($news as $value)
-            <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
+            <div class="swiper-slide slider-row">
+            <!-- <div class="col-md-4 col-sm-4 col-xs-12 three_row_section"> -->
+             <div class="three_row_section">
                 <a href="{{$value->url}}" target="_blank"><img src="{{asset('admin/upload/news/'.$value->image)}}" alt="{{$value->alt}}" class="img-responsive" />
                 <h3 class="title-color">{{$value->name}}</h3></a>
                 <p class="date-font">{{ date('d F, Y', strtotime(trim($value->date))) }}</p>
             </div>
+            </div>
             @endforeach
+            </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
  
         </div>
     </div>

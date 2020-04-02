@@ -1,5 +1,5 @@
 @extends('web.layouts.indexinner')
-@section('title','All Editorial Boards')
+@section('title','INED LIBRARY')
 @section('bannertitle','INED LIBRARY ')
 @section('innerbannertitle', $categoryName)
 @section('content')
@@ -38,7 +38,7 @@
 				
 
 			</div>
-			@include('web.layouts.sidebar')
+			@include('web.layouts.sidebar.ined-sidebar')
 		</div>
 	</div>
 </div>

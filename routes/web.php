@@ -24,7 +24,11 @@ Route::group([
     'as' => 'web.',
 ],function(){
 	Route::get('/', 'HomeController@index')->name('home');
-	Route::get('all-editorial/{slug?}', 'HomeController@showalleditorial')->name('all-editorial');
+  Route::any('search', 'HomeController@search')->name('search');
+  /* editorial Board Routes Starts*/
+	Route::get('all-editorial/{slug?}', 'BoardController@showalleditorial')->name('all-editorial');
+  Route::get('all-editorial-category/{categorySlug}', 'BoardController@categoryeditorial')->name('all-editorial-category');
+  /* editorial Board Routes Starts*/
   /* Ined Library Routes Starts*/
   Route::get('ined-library', 'LibraryController@index')->name('ined-library');
 	Route::get('ined-library/{categorySlug}/{typeSlug}', 'LibraryController@single')->name('ined-library-single');
