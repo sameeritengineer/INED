@@ -28,6 +28,12 @@
     font-size: 16px;
     text-align: justify;
 }
+.section-title-search {
+    text-align: left;
+    font-size: 25px;
+    font-weight: 600;
+    color: #ae272e;
+}
 </style>
 <div class="col-md-12 col-sm-12 col-xs-12 contact">
 	<div class="container">
@@ -36,9 +42,14 @@
                  <h3 class="section-title">Search Result for: {{$search}}</h3>
 				</div>
 			</div>
+             <div class="row">
+                @if($total > 0)
+                <h3 class="section-title-search">Total Result: {{$total}}</h3>
+                @else
+                <h3 class="section-title-search">No Result</h3>
+                @endif
+              </div>
 			<div class="row">
-			@if(count($categories) > 0)
-			<h3>Result For Category:</h3>
 			 @foreach($categories as $cat)
             <a href="{{route('web.ined-library-detail', ['categorySlug'=>$cat->slug])}}">
             <div class="col-md-4 col-sm-4 col-xs-12 three_row_section">
@@ -47,14 +58,9 @@
             </div>
             </a>
             @endforeach
-            @else
-            <h3>No Result Found for category:</h3>
-            @endif
             </div>
 
             <div class="row">
-           	@if(count($boards) > 0)
-			<h3>Result For Editorial Boards:</h3>
            	@foreach($boards as $board)
             <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="slider-row-search">
@@ -70,9 +76,6 @@
                 </div>
             </div>
             @endforeach
-            @else
-            <h3>No Result Found for Editorial Board:</h3>
-            @endif
             </div>
 
 		

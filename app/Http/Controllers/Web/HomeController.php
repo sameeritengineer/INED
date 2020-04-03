@@ -32,7 +32,7 @@ class HomeController extends BaseController
     {
       return view('web.pages.term');
     }  
-    public function team()
+    public function coming()
     {
       return view('web.pages.coming');
     } 
@@ -40,11 +40,15 @@ class HomeController extends BaseController
     {
       $data = [];  
       $search = $request->search;
-      $categories = Category::where('name','LIKE',"%{$search}%")->where('status', 1)->get();
+      $categories = Category::where('name','LIKE',$search)->where('status', 1)->get();
       $boards   = Board::where('name','LIKE',"%{$search}%")->orWhere('l_description', 'LIKE', "%{$search}%")->where('status', 1)->get();
+      $total_cat = count($categories);
+      $total_board = count($boards);
+      $total = $total_cat+$total_board;
       $data['categories'] = $categories;
       $data['boards'] = $boards;
       $data['search'] = $search;
+      $data['total'] = $total;
       return view('web.pages.search',$data);
     }   
 

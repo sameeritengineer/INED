@@ -9,6 +9,7 @@ use App\Board;
 use App\Library;
 use App\ContentType;
 use App\News;
+use App\Team;
 
 class LibraryController extends BaseController
 {
@@ -78,9 +79,11 @@ class LibraryController extends BaseController
       $categories = Category::select('id','name','slug')->where('cat_parent_id',0)->where('status', 1)->orderByRaw('ined_sort')->limit(6)->get();
       $recent_categories = Category::select('id','name','slug')->where('cat_parent_id',0)->where('status', 1)->orderBy('id', 'DESC')->limit(5)->get();
       $recent_news = News::select('id','name','url')->where('status',1)->where('upcoming',1)->orderBy('id', 'DESC')->limit(5)->get();
+      $teams = Team::get();
         $data['categories'] = $categories;
         $data['recent_categories'] = $recent_categories;
         $data['recent_news'] = $recent_news;
+        $data['team_count'] = count($teams);
         return $data;
     }
 }

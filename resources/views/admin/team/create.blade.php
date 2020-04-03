@@ -50,7 +50,7 @@
                      <div class="form-body">
                         <h4 class="form-section"><i class="ft-user"></i> Team member Info</h4>
                         <div class="row">
-                           <div class="col-md-4">
+                           <div class="col-md-3">
                               <div class="form-group">
                                  <label for="projectinput2">Name <span class="required">*</span></label>
                                  <div class="controls">
@@ -58,7 +58,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="col-md-4">
+                           <div class="col-md-3">
                               <div class="form-group">
                               	<label for="projectinput2">Slug <span class="required">*</span></label>
                               	<div class="controls">
@@ -66,7 +66,20 @@
                                 </div>
                               </div>
                            </div>
-                           <div class="col-md-4">
+                           <div class="col-md-3">
+                              <div class="form-group">
+                                 <label for="projectinput5">Team Member Type</label>
+                                 <div class="controls">
+                                 <select id="team_member_select" name="team_type_id" class="form-control">
+                                    <option value="">Select Team Member Type</option>
+                                    @foreach($team_types as $type)
+                                    <option value="{{$type->id}}">{{$type->name}}</option>
+                                    @endforeach
+                                 </select>
+                               </div>
+                              </div>
+                           </div>
+                           <div class="col-md-3">
                               <div class="form-group radio-form">
                                 <label class="w-100 float-left" for="projectinput5">Status</label>
                                <span>

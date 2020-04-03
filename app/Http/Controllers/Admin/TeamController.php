@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Team;
 use App\Category;
+use App\TeamType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -31,7 +32,9 @@ class TeamController extends Controller
         //
         $data = [];
         $categories = Category::where('cat_parent_id',0)->get();
+        $team_types  = TeamType::get();
         $data['categories'] = $categories;
+        $data['team_types'] = $team_types;
         return view('admin.team.create',$data);
     }
 
@@ -86,6 +89,7 @@ class TeamController extends Controller
                 'image' => $picture,
                 'category_id' => $params['c_id'],
                 'subcategory_id' => $params['s_id'],
+                'team_type_id' => $params['team_type_id'],
                 'meta_title' => trim($params['meta_title']),
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
@@ -131,9 +135,11 @@ class TeamController extends Controller
         $data = [];
         $categories = Category::where('cat_parent_id',0)->get();
         $subcategories = Category::where('cat_parent_id',$team->category_id)->get();
+        $team_types  = TeamType::get();
         $data['teams'] = $team;
         $data['categories'] = $categories;
         $data['subcategories'] = $subcategories;
+        $data['team_types'] = $team_types;
         return view('admin.team.edit',$data);
     }
 

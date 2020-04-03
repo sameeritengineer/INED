@@ -22,13 +22,8 @@
 
 			 			
 		</div>
-		<div class="col-md-3 col-sm-3 col-xs-12 left_sidebar">
-	<div class="about_content">
-	<h3 class="title-color margin_top">About</h3>
-	<p>We strive to bring together the best medical content from major publishers and medical leaders in their specialty, faculty from top training programs to create a large up-to-date training library for healthcare practitioners using fast, easy, effective online learning tools.</p>
-	<a class="read_more_text padding-top-10" href="{{route('web.about-us')}}">Read More</a>
-	</div>
-	</div>	</div>
+	      @include('web.layouts.sidebar.news-sidebar')
+</div>
 </div>
 </div>
 

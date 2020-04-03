@@ -2,11 +2,11 @@
 	<div class="sidebar_search">
 		<form class="search_form" action="{{route('web.search')}}" method="post">
 			@csrf
-			<input type="search" placeholder="Search" class="search_field" name="">
-			<button type="button" class="search_submit_btn"><i class="fa fa-search"></i></button>
+			<input type="text" name="search" placeholder="Search" class="search_field" name="">
+			<button type="submit" class="search_submit_btn"><i class="fa fa-search"></i></button>
 		</form>
 	</div>
-	<div class="sidebar_category">
+	<!-- <div class="sidebar_category">
 		<h3 class="title-color">INED Library</h3>
 		<ul>
 			@foreach($sidebar['categories'] as $cat)
@@ -24,7 +24,7 @@
 			<li><a href="{{route('web.ined-library-detail', ['categorySlug'=>$recent->slug])}}"><i class="fa fa-angle-right"></i>{{$recent->name}}</a></li>
 			@endforeach
 		</ul>
-	</div>
+	</div> -->
 	@if(count($sidebar['recent_news']) > 0)
 	<div class="sidebar_category">
 		<h3 class="title-color">New Events</h3>

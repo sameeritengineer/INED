@@ -1430,6 +1430,7 @@ span.social-icon {
     border-right: 0;
     height: 35px;
     padding-left: 10px;
+    width: 300px;
 }
 
 *:focus {

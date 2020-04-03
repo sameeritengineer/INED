@@ -1,9 +1,4 @@
 <div class="col-md-3 col-sm-3 col-xs-12 left_sidebar">
-	<div class="about_content">
-	<h3 class="title-color margin_top">About</h3>
-	<p> We strive to bring together the best medical content from major publishers and medical leaders in their specialty, faculty from top training programs to create a large up-to-date training library for healthcare practitioners using fast, easy, effective online learning tools.
-			<a class="read_more_text padding-top-10" href="{{route('web.about-us')}}">Read More</a></p>
-	</div>
 	<div class="sidebar_search">
 		<form class="search_form" action="{{route('web.search')}}" method="post">
 			@csrf
@@ -14,8 +9,8 @@
 	<div class="sidebar_category">
 		<h3 class="title-color">Editors</h3>
 		<ul>
-			@foreach($sidebar['categories'] as $cat)
-			<li><a href="{{route('web.all-editorial-category', ['categorySlug'=>$cat->slug])}}"><i class="fa fa-angle-right"></i>{{$cat->name}}</a></li>
+			@foreach($sidebar['board_categories'] as $bcat)
+			<li><a href="{{route('web.all-editorial-category', ['categorySlug'=>$bcat->slug])}}"><i class="fa fa-angle-right"></i>{{$bcat->name}}</a></li>
 			@endforeach
 		</ul>
 	</div>
@@ -38,6 +33,7 @@
 			@endforeach
 		</ul>
 	</div>
+	@if(count($sidebar['recent_news']) > 0)
 	<div class="sidebar_category">
 		<h3 class="title-color">New Events</h3>
 		<ul>
@@ -46,9 +42,14 @@
 			@endforeach
 		</ul>
 	</div>
+	@endif
 	<div class="sidebar_category">
 		<ul>
-			<li><a href="{{route('web.meet-the-team')}}"><i class="fa fa-angle-right"></i> Meet our team</a></li>
+			@if($sidebar['team_count'] > 0)
+            <li><a href="{{route('web.meet-the-team')}}"><i class="fa fa-angle-right"></i> meet the team</a></li>
+			@else
+			<li><a href="{{route('web.coming')}}"><i class="fa fa-angle-right"></i> meet the team</a></li>
+			@endif
 			<!-- <li><a href="#"><i class="fa fa-angle-right"></i> Recent News</a></li> -->
 		</ul>
 	</div>

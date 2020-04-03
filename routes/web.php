@@ -25,6 +25,7 @@ Route::group([
 ],function(){
 	Route::get('/', 'HomeController@index')->name('home');
   Route::any('search', 'HomeController@search')->name('search');
+  Route::any('coming', 'HomeController@coming')->name('coming');
   /* editorial Board Routes Starts*/
 	Route::get('all-editorial/{slug?}', 'BoardController@showalleditorial')->name('all-editorial');
   Route::get('all-editorial-category/{categorySlug}', 'BoardController@categoryeditorial')->name('all-editorial-category');

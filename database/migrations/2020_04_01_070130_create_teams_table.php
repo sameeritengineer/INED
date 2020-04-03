@@ -25,6 +25,7 @@ class CreateTeamsTable extends Migration
             $table->string('alt')->nullable();
             $table->integer('category_id')->nullable()->default(NULL);
             $table->integer('subcategory_id')->nullable()->default(NULL);
+            $table->integer('team_type_id')->nullable()->default(NULL);
             $table->text('meta_title')->nullable();
             $table->text('meta_keyword')->nullable();
             $table->text('meta_description')->nullable();
