@@ -90,6 +90,7 @@ class LibraryController extends BaseController
         }
         $data['typedata'] = $typedata;
         $data['categoryName'] = $getcategoryData->name;
+        $data['categorySlug'] = $categorySlug;
         $data['count'] = $count;
         $data['sidebar'] = $sidebar;
         if($data['count'] > 0){

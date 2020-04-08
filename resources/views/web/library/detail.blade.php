@@ -19,7 +19,7 @@
 				 	@else
                        <img src="{{asset('admin/upload/library/'.$value->image)}}" class="img-responsive" style="width: 100%" alt="" />
 				 	@endif
-						<h3 class="title-color ined_library_video_title">{{$value->name}}</h3>
+					<a href="{{route('web.ined-library-video-detail', ['categorySlug'=>$categorySlug,'typeSlug'=>$key,'Slug'=>$value->slug])}}"><h3 class="title-color ined_library_video_title">{{$value->name}}</h3></a>
 						<p class="date-font ined_lib_date">{{$value->created_at->format('d F, Y')}}</p>
 				</div>
 				@endforeach
