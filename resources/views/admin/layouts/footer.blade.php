@@ -9,13 +9,13 @@
 <script src="{{asset('admin/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}"type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/vendors/js/tables/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js')}}"type="text/javascript"></script>
-<script src="{{asset('admin/app-assets/vendors/js/charts/raphael-min.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('admin/app-assets/vendors/js/charts/raphael-min.js')}}" type="text/javascript"></script> -->
 <!--<script src="{{asset('admin/app-assets/vendors/js/charts/morris.min.js')}}" type="text/javascript"></script>-->
-<script src="{{asset('admin/app-assets/vendors/js/extensions/unslider-min.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('admin/app-assets/vendors/js/extensions/unslider-min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/vendors/js/timeline/horizontal-timeline.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/vendors/js/extensions/toastr.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('admin/app-assets/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin/app-assets/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script> -->
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN STACK JS-->
 <script src="{{asset('admin/app-assets/js/core/app-menu.min.js')}}" type="text/javascript"></script>
@@ -23,15 +23,14 @@
 <script src="{{asset('admin/app-assets/js/scripts/customizer.min.js')}}" type="text/javascript"></script>
 <!-- END STACK JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="{{asset('admin/app-assets/js/scripts/pages/dashboard-ecommerce.min.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('admin/app-assets/js/scripts/pages/dashboard-ecommerce.min.js')}}" type="text/javascript"></script> -->
 <script src="{{asset('admin/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/js/scripts/forms/validation/form-validation.js')}}"type="text/javascript"></script>
-<script src="{{asset('admin/app-assets/js/scripts/extensions/toastr.min.js')}}" type="text/javascript"></script>
-<!-- <script src="{{asset('admin/app-assets/js/scripts/forms/switch.min.js')}}" type="text/javascript"></script> -->
+<!-- <script src="{{asset('admin/app-assets/js/scripts/extensions/toastr.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin/app-assets/js/scripts/forms/switch.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/app-assets/js/scripts/forms/select/form-select2.min.js')}}" type="text/javascript"></script>
-<!-- google latlong-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2MZzFI6Z32E52Sj4fQYcAVHWmc4--g30&libraries=places&sensor=false&amp;"></script>
-<script src="{{asset('admin/js/jquery.geocomplete.js')}}" type="text/javascript" ></script>
+<script src="{{asset('admin/js/jquery.geocomplete.js')}}" type="text/javascript" ></script> -->
 
 
 <script src="https://cdn.ckeditor.com/4.14.0/standard-all/ckeditor.js"></script>

@@ -11,40 +11,44 @@
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/feather/style.min.css')}}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/feather/style.min.css')}}"> -->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/flag-icon-css/css/flag-icon.min.css')}}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/flag-icon-css/css/flag-icon.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/extensions/pace.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/extensions/unslider.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/weather-icons/climacons.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/meteocons/style.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/charts/morris.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/weather-icons/climacons.min.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/meteocons/style.min.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/charts/morris.css')}}"> -->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/plugins/forms/validation/form-validation.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/forms/toggle/switchery.min.css')}}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/forms/toggle/switchery.min.css')}}"> -->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/extensions/toastr.css')}}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/extensions/toastr.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/plugins/extensions/toastr.min.css')}}">
-  <!-- END VENDOR CSS-->
+ -->  <!-- END VENDOR CSS-->
   <!-- BEGIN STACK CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/bootstrap-extended.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/app.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/colors.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/forms/selects/select2.min.css')}}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/forms/selects/select2.min.css')}}"> -->
   <!-- END STACK CSS-->
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/core/menu/menu-types/vertical-menu.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/core/menu/menu-types/vertical-overlay-menu.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/core/colors/palette-gradient.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/fonts/simple-line-icons/style.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/core/colors/palette-gradient.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/pages/timeline.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/plugins/forms/switch.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css">
+  
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/core/colors/palette-gradient.min.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/pages/timeline.min.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/plugins/forms/switch.min.css')}}"> -->
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/style.css')}}">
   <!-- END Custom CSS-->
   <!-- BEGIN VENDOR JS-->
 <script src="{{asset('admin/app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js" type="text/javascript"></script>
+
 <!-- BEGIN VENDOR JS-->
  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />

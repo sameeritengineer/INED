@@ -52,7 +52,7 @@ class LibraryController extends Controller
             'name' => 'required',
             'slug' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video' => ['mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts|max:100040']
+            // 'video' => ['mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts|max:100040']
         ]);
         $params = $request->input();
         $success = true;
@@ -78,15 +78,27 @@ class LibraryController extends Controller
               }else{
                     $picture = 'dummy.jpg';
               }
-              if ($request->hasFile('video'))
+              if ($request->hasFile('upload'))
               {
-                    $videofile      = $request->file('video');
+                    if($request->videoPreviews){
+                    $vimage = $request->videoPreviews;
+                    list($type, $vimage) = explode(';', $vimage);
+                    list(, $vimage)      = explode(',', $vimage);
+                    $vimage = base64_decode($vimage);
+                    $vpicture= date('His').'.png';
+                    $vpath = public_path('admin/upload/library/video'.$vpicture);
+                    file_put_contents($vpath, $vimage);
+                    }else{
+                      $vpicture = NULL;
+                    }
+                    $videofile      = $request->file('upload');
                     $videofilename  = $videofile->getClientOriginalName();
                     $videoextension = $videofile->getClientOriginalExtension();
                     $video   = date('His').'-'.$videofilename;
                     $uploadSuccess = $videofile->move(public_path('admin/upload/library/video'), $video);
               }else{
                    $video = NULL;
+                   $vpicture = NULL;
               }
               $library = Library::create([
                 'content_type_id' => trim($params['content_type_id']),
@@ -96,7 +108,7 @@ class LibraryController extends Controller
                 'alt' => trim($params['alt']),
                 'image' => $picture,
                 'subscription_type' => trim($params['sub_type_id']),
-                'url' => trim($params['url']),
+                'url' => (isset($params['url'])?$params['url']:NULL),
                 'alt' => trim($params['alt']),
                 'category_id' => $params['c_id'],
                 'subcategory_id' => $params['s_id'],
@@ -105,6 +117,7 @@ class LibraryController extends Controller
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
                 'status' => trim($params['status']),
+                'videoimage' => $vpicture,
             ]);
             }
          }catch (Throwable $e) {
@@ -182,15 +195,32 @@ class LibraryController extends Controller
               }else{
                     $picture = $libraryToBeUpdated->image;
               }
-              if ($request->hasFile('video'))
+              if($request->hasFile('upload'))
               {
-                    $videofile      = $request->file('video');
+                    if($request->videoPreviews){
+                    $vimage = $request->videoPreviews;
+                    list($type, $vimage) = explode(';', $vimage);
+                    list(, $vimage)      = explode(',', $vimage);
+                    $vimage = base64_decode($vimage);
+                    $vpicture= date('His').'.png';
+                    $vpath = public_path('admin/upload/library/video'.$vpicture);
+                    file_put_contents($vpath, $vimage);
+                    }else{
+                      $vpicture = NULL;
+                    }
+
+                    $videofile      = $request->file('upload');
                     $videofilename  = $videofile->getClientOriginalName();
                     $videoextension = $videofile->getClientOriginalExtension();
                     $video   = date('His').'-'.$videofilename;
                     $uploadSuccess = $videofile->move(public_path('admin/upload/library/video'), $video);
               }else{
-                   $video = $libraryToBeUpdated->upload;
+                if(isset($params['url'])){
+                $video = NULL;
+                }else{
+                  $video = $libraryToBeUpdated->upload;
+                }
+                   $vpicture = NULL;
               }
                 $updateFields = [
                 'content_type_id' => trim($params['content_type_id']),
@@ -209,6 +239,7 @@ class LibraryController extends Controller
                 'meta_keyword' => trim($params['meta_keyword']),
                 'meta_description' => trim($params['meta_description']),
                 'status' => trim($params['status']),
+                'videoimage' => $vpicture,
                     ];
             $libraryToBeUpdated->update($updateFields);
          }catch (Throwable $e) {

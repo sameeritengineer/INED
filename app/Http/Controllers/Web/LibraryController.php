@@ -41,9 +41,13 @@ class LibraryController extends BaseController
        $data['libraries'] = $libraryList;
        $data['categoryName'] = $getcategoryData->name;
        $data['sidebar'] = $sidebar;
+       $data['categorySlug'] = $categorySlug;
+       $data['typeSlug'] = $typeSlug;
        if(count($data['libraries']) > 0){
           if($gettypeData->id == 1){
            return view('web.library.video',$data);
+           }elseif($gettypeData->id == 2){
+            return view('web.library.presentation',$data);
            }else{
                return view('web.library.article',$data);
            }
@@ -51,6 +55,26 @@ class LibraryController extends BaseController
            return view('web.library.coming',$data);
        }
     }
+    public function videodetail($categorySlug,$typeSlug,$slug)
+    {
+        $data = [];
+        $library = Library::where('status',1)->where('slug',$slug)->first();
+        $getcategoryData = Category::select('id','name')->where('slug',$categorySlug)->first();
+        $gettypeData = ContentType::select('id')->where('name',$typeSlug)->first();
+        $libraryList = Library::select('id','name','slug','url','upload')->where('status',1)->where('category_id',$getcategoryData->id)->where('content_type_id',$gettypeData->id)->orderBy('id', 'DESC')->limit(5)->get();
+        $recent_news = News::select('id','name','url')->where('status',1)->where('upcoming',1)->orderBy('id', 'DESC')->limit(5)->get();
+        $data['library'] = $library;
+        $data['libraryList'] = $libraryList;
+        $data['recent_news'] = $recent_news;
+        $data['categorySlug'] = $categorySlug;
+        $data['typeSlug'] = $typeSlug;
+        if($typeSlug == 'videos'){
+          return view('web.library.video-detail',$data);
+        }elseif($typeSlug == 'presentation'){
+          return view('web.library.presentation-detail',$data);
+        }
+    }
+
     public function detail($categorySlug)
     {
         $sidebar = $this->sidebar();

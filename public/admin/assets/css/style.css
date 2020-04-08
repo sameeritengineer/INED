@@ -157,3 +157,9 @@ li.nav-item.active a {
 .gj-datepicker-bootstrap [role=right-icon] button {
     padding: 20px;
 }
+.urlMain,.uploadfileMain{
+  display: none;
+}
+.videoUpload,.presentationUpload,.webinarUpload,.podcastUpload,.urlUpload{
+  display: none;
+}

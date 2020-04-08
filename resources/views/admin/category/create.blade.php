@@ -1,6 +1,43 @@
 @extends('admin.layouts.index')
 @section('title','Category')
 @section('content')
+<style>
+.box {
+  padding: 0.5em;
+  width: 100%;
+  margin:0.5em;
+}
+
+.box-2 {
+  padding: 0.5em;
+  width: 570px;
+}
+
+.options label,
+.options input{
+  width:4em;
+  padding:0.5em 1em;
+}
+.btn{
+  background:white;
+  color:black;
+  border:1px solid black;
+  padding: 0.5em 1em;
+  text-decoration:none;
+  margin:0.8em 0.3em;
+  display:inline-block;
+  cursor:pointer;
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+</style>
 <div class="app-content content container-fluid load">
   <div class="content-wrapper data">
 <div class="row">
@@ -47,9 +84,24 @@
                @endif
                   <form action="{{ route('categories.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data" novalidate>
                   	@csrf
+
                      <div class="form-body">
                         <h4 class="form-section"><i class="ft-user"></i> Category Info</h4>
                         <div class="row">
+
+
+
+<!-- <div class="col-md-12">
+          <main class="page">
+  <h2>Upload ,Crop and save.</h2>
+  <div class="box">
+    <input type="file" id="file-input" value="" onclick="cropImage()">
+    <input type="text" id="file-input1" name="sameerkifile" value="">
+  </div>
+</main>
+</div>
+ -->
+
                            <div class="col-md-3">
                               <div class="form-group">
                                  <label for="projectinput2">Category Name <span class="required">*</span></label>
@@ -169,6 +221,42 @@
    </div>
 </section>
 
+<div class="modal fade text-xs-left" id="cropImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close clear" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+  <h2>Crop Image</h2>
+  <!-- leftbox -->
+  <div class="col-md-6">
+  <div class="box-2">
+    <div class="result"></div>
+  </div>
+  </div>
+  <!-- input file -->
+  <div class="box">
+    <div class="options hide">
+      <label> Width</label>
+      <input type="number" class="img-w" value="300" min="100" max="1200" />
+    </div>
+    <!-- save btn -->
+    <button class="btn save hide">Save</button>
+    <!-- download btn -->
+    <a href="" class="btn download hide">Download</a>
+  </div>
+
+
+</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 <!-- <form action="{{ route('categories.store') }}" method="POST">
     @csrf
   
@@ -194,6 +282,68 @@
 </div>
 </div>
 <script>
+  function cropImage(id,name)
+{
+  $("#cropImage").modal("show");
+}
+  // vars
+let result = document.querySelector('.result'),
+img_result = document.querySelector('.img-result'),
+img_w = document.querySelector('.img-w'),
+img_h = document.querySelector('.img-h'),
+options = document.querySelector('.options'),
+save = document.querySelector('.save'),
+cropped = document.querySelector('.cropped'),
+dwn = document.querySelector('.download'),
+upload = document.querySelector('#file-input'),
+cropper = '';
+
+// on change show image with crop options
+upload.addEventListener('change', (e) => {
+  if (e.target.files.length) {
+    // start file reader
+    const reader = new FileReader();
+    reader.onload = (e)=> {
+      if(e.target.result){
+        // create new image
+        let img = document.createElement('img');
+        img.id = 'image';
+        img.src = e.target.result
+        // clean result before
+        result.innerHTML = '';
+        // append new image
+        result.appendChild(img);
+        // show save btn and options
+        save.classList.remove('hide');
+        options.classList.remove('hide');
+        // init cropper
+        cropper = new Cropper(img);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+});
+
+// save on click
+save.addEventListener('click',(e)=>{
+  e.preventDefault();
+  // get result to data uri
+  let imgSrc = cropper.getCroppedCanvas({
+    width: img_w.value // input value
+  }).toDataURL();
+
+  document.getElementById("file-input1").value = imgSrc;
+  // remove hide class of img
+  cropped.classList.remove('hide');
+  img_result.classList.remove('hide');
+  // show image cropped
+  cropped.src = imgSrc;
+  dwn.classList.remove('hide');
+  dwn.download = 'imagename.png';
+  dwn.setAttribute('href',imgSrc);
+});
+
+
   var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);

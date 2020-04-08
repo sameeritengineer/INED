@@ -75,6 +75,16 @@ class CategoryController extends Controller
                     $extension = $file->getClientOriginalExtension();
                     $picture   = date('His').'-'.$filename;
                     $uploadSuccess = $file->move(public_path('admin/upload/category'), $picture);
+                    
+                    // $file      = $request->file('uploadfilname');
+                    // $filename  = $file->getClientOriginalName();
+                    // $image = $request->image;
+                    // list($type, $image) = explode(';', $image);
+                    // list(, $image)      = explode(',', $image);
+                    // $image = base64_decode($image);
+                    // $picture= date('His').$filename;
+                    // $path = public_path('admin/upload/test/'.$picture);
+                    // file_put_contents($path, $image);
               }else{
                     $picture = 'dummy.jpg';
               }  

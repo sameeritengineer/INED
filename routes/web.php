@@ -33,6 +33,8 @@ Route::group([
   /* Ined Library Routes Starts*/
   Route::get('ined-library', 'LibraryController@index')->name('ined-library');
 	Route::get('ined-library/{categorySlug}/{typeSlug}', 'LibraryController@single')->name('ined-library-single');
+  Route::get('ined-library-video-detail/{categorySlug}/{typeSlug}/{Slug}', 'LibraryController@videodetail')->name('ined-library-video-detail');
+  Route::get('ined-library-presentation-detail/{categorySlug}/{typeSlug}/{Slug}', 'LibraryController@videodetail')->name('ined-library-presentation-detail');
 	Route::get('ined-library-detail/{categorySlug}', 'LibraryController@detail')->name('ined-library-detail');
   /* Ined Library Routes Ends*/
   /* Pages Route Starts */
