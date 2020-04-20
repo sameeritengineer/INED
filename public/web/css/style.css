@@ -1294,7 +1294,16 @@ span.social-icon {
     line-height: 40px;
     text-shadow: 3px 3px 3px #000;
 }
-
+.inner-page-sub-title{
+    color: #AE272E;
+    font-size: 30px;
+    text-align: center;
+    line-height: 125px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 40px;
+    text-shadow: 3px 3px 3px #000;
+}
 .text-underline{
     text-decoration: underline;
 }
