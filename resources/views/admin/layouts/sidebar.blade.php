@@ -1,3 +1,4 @@
+
 <div data-scroll-to-active="true" class="main-menu menu-fixed menu-accordion menu-shadow menu-dark">
   <div class="main-menu-content">
     <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
@@ -39,9 +40,17 @@
             <li class="{{ in_array(Route::currentRouteName(), ['member.create']) ? 'active' : '' }}"><a href="{{route('member.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Member</span></a></li>
         </ul>
       </li>
+      <li class="nav-item"><a href="#"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Our Banner </span></a>
+        <ul class="menu-content">
+            <li class="{{ in_array(Route::currentRouteName(), ['banner.index','banner.edit']) ? 'active' : '' }}"><a href="{{route('banner.index')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Our banners</span></a></li>
+            <li class="{{ in_array(Route::currentRouteName(), ['banner.create']) ? 'active' : '' }}"><a href="{{route('banner.create')}}" class="menu-item"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Add Banner</span></a></li>
+        </ul>
+      </li>
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['leads']) ? 'active' : '' }}"><a href="{{route('leads')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Leads</span></a>
       </li>
       <li class="nav-item {{ in_array(Route::currentRouteName(), ['subscribers']) ? 'active' : '' }}"><a href="{{route('subscribers')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Subscribers</span></a>
+      </li>
+       <li class="nav-item {{ in_array(Route::currentRouteName(), ['users']) ? 'active' : '' }}"><a href="{{route('users.index')}}"><i class="fa fa-flag"></i><span data-i18n="" class="menu-title">Users</span></a>
       </li>
     </ul>
   </div>

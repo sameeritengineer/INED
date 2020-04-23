@@ -16,6 +16,20 @@
     </div>
 </div>
 
+<div class="col-md-12 col-sm-12 col-xs-12 custom-slider" id="custom-slider">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            @foreach($banner as $banner)
+            <div class="swiper-slide">
+                <img style="width: 100%" class="img-responsive" src="{{asset('admin/upload/banner/'.$banner->image)}}" alt="" />
+                <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
+            </div>
+            @endforeach
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
 <div class="col-md-12 col-sm-12 col-xs-12 about_section">
     <div class="container">
         <div class="section-title-row">

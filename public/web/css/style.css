@@ -1294,16 +1294,7 @@ span.social-icon {
     line-height: 40px;
     text-shadow: 3px 3px 3px #000;
 }
-.inner-page-sub-title{
-    color: #AE272E;
-    font-size: 30px;
-    text-align: center;
-    line-height: 125px;
-    text-transform: uppercase;
-    margin: 0;
-    line-height: 40px;
-    text-shadow: 3px 3px 3px #000;
-}
+
 .text-underline{
     text-decoration: underline;
 }
@@ -1321,38 +1312,38 @@ span.social-icon {
     border-right: 1px #f3f3f3 solid;
 }
 
-.profile_section:nth-child(2n+1) .profile_img img{
+.profile_section:first-child .profile_img img{
     width: 150px;
     border: 6px solid #AE272E;
     margin-right: 25px;
 }
 
-.profile_section:nth-child(2n) .profile_img img{
+.profile_section:nth-child(2) .profile_img img{
     width: 150px;
     border: 6px solid #AE272E;
     margin-left: 25px;
 }
 
-.profile_section:nth-child(2n) .profile_img{
+.profile_section:nth-child(2) .profile_img{
     display: flex;
     order: 2;
 }
 
-.profile_section:nth-child(2n+1) .profile_name{
+.profile_section:first-child .profile_name{
     width: 65%;
     padding-left: 40px;
     position: relative;
     text-align: justify;
 }
 
-.profile_section:nth-child(2n) .profile_name{
+.profile_section:nth-child(2) .profile_name{
     width: 65%;
     padding-right: 40px;
     position: relative;
     text-align: right;
 }
 
-.profile_section:nth-child(2n+1) .profile_name:before{
+.profile_section:first-child .profile_name:before{
     top: 20px;
     background-image: url(../images/arrow.png);
     background-size: cover;
@@ -1365,7 +1356,7 @@ span.social-icon {
     transform: translate(0, -50%);
 }
 
-.profile_section:nth-child(2n) .profile_name:after{
+.profile_section:nth-child(2) .profile_name:after{
     top: 20px;
     background-image: url(../images/arrow.png);
     background-size: cover;
@@ -1439,7 +1430,6 @@ span.social-icon {
     border-right: 0;
     height: 35px;
     padding-left: 10px;
-    width: 300px;
 }
 
 *:focus {
@@ -1738,6 +1728,82 @@ span.social-icon {
     padding-top: 10px;
 }
 
+.home-icon-close{
+    right: -7px;
+    top: -6px;
+    margin-top: 0;
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    float: right;
+    cursor: pointer;
+}
+
+.popup-contain{
+    width: 500px;
+    height: auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 25px;
+}
+
+.custom-popup-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1212;
+    background-color: rgba(0,0,0,0.2);
+    transition: opacity 0.4s ease;
+    bottom: 0;
+    top: 0;
+    left:0;
+}
+
+.custom-popup{
+    width:100%;
+    height: 100%;
+    bottom:0;
+    position: fixed;
+    z-index: 12123;
+    top: 0;
+}
+
+.popup-contain img{
+    max-width:100%;
+}
+
+.ined-library-btn:hover{
+    background-color: #ae272e;
+    transition: 0.3s;
+}
+
+.custom-slider{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.banner-link {
+    position: absolute;
+    bottom: 50px;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+    font-size: 50px;
+    left: 50px;
+    text-decoration: none;
+}
+
+.banner-link:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
+.ined-library-btn {
+    padding: 5px 50px;
+}
+
 @media screen and (max-width: 1200px){
     .footer-social {
         width: 100% !important;
@@ -1873,6 +1939,16 @@ span.social-icon {
     .top-banner .bannner-img{
         margin-top: 0px;
     }
+
+    .banner-link {
+        bottom: 30px;
+        font-size: 25px;
+        left: 20px;
+    }
+    .popup-contain {
+        width: 90%;
+        top: 40%;
+      }
 
     .inner-navigation {
         position: inherit;
@@ -2392,15 +2468,185 @@ span.social-icon {
     color: #ae272e;
     font-size: 17px;
 }
+.border-outer {
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.signup-form-side {
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    height: 628px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+
+}
+.contact-section-signup{
+     background-color: #fff;
+    margin-left: 40px;
+    padding-left: 13px;
+}
+.signup-form-field {
+
+    background-color: #fff;
+    margin-left: 35px;
+    width: 41%;
+    margin-top: 50px;
+
+}
+.signup-heading {
+
+    font-size: 25px;
+    text-align: center;
+    color: #9a545e;
+    font-weight: 600;
+    margin-bottom: 60px;
+
+}
+.sign-up-field{
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    border:none;
+    border-bottom: 2px solid #598a91;
+    box-shadow: none;
+    border-radius: 0;
+}
+.form-icon {
+    position: absolute;
+    right: 27px;
+    width: 20px;
+    padding-top: 8px;
+}
+.password-desc {
+    font-size: 12px;
+    margin-top: -14px;
+    color: #918684;
+    margin-bottom: 26px;
+}
+.checkbox-signup{
+    display: inline;
+}
+.checkbox-bootom {
+    display: block ruby;
+    margin-bottom: 6px;
+}
+.chkbox-cont {
+    margin-left: 30px;
+}
+.sign-up-submit-btn {
+    background: none;
+    width: 66%;
+    color: #ae272e;
+    text-align: center;
+    line-height: 36px;
+    height: 38px;
+    border-radius: 5px;
+    border: 2px solid #ae272e;
+    display: flex;
+    margin: auto;
+}
+.sign-up-submit-btn:hover {
+    background: #ae272e;
+    width: 66%;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    height: 38px;
+    border-radius: 5px;
+    border: 2px solid #ae272e;
+    display: flex;
+    margin: auto;
+}
+.login-text {
+    color: #9a2e36;
+    margin-top: 16px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 42px;
+}
+.login-text a{
+    color: #9a2e36;
+}
+.login-text a:hover{
+    color: #9a2e36;
+}
 
 
-/* smartit css */
-.ft-contect p.error {
-    color: red;
+/*    login page  */  
+
+.login-heading {
+    font-size: 25px;
+    text-align: center;
+    color: #9a545e;
+    font-weight: 600;
+    margin-bottom: 85px;
+    margin-top: 85px;
 }
-.ft-contect p.success {
-    color: green;
+.login-submit-btn {
+
+    background: none;
+    width: 97%;
+    color: #ae272e;
+    text-align: center;
+    line-height: 36px;
+    height: 46px;
+    border-radius: 5px;
+    border: 2px solid #ae272e;
+    display: flex;
+    margin: auto;
+    font-size: 20px;
+
 }
-.profile_section:nth-child(2n) .profile_name p.testimonial_p_profile {
-    text-align: right;
+.login-submit-btn{
+    background: #ae272e;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    height: 46px;
+    border-radius: 5px;
+    border: 2px solid #ae272e;
+    display: flex;
+    margin: auto;
+    font-size: 20px;
+}
+.social-login-head {
+    font-size: 19px;
+    color: #ae272e;
+    text-align: center;
+    margin-top: 30px;
+}
+.social-login {
+    padding-top: 8px;
+    text-align: center;
+    border-radius: 8px;
+    margin-left: 30px;
+    color: #fff;
+    font-size: 11px;
+}
+
+.facebook-login {
+    width: 9px;
+    margin-right: 8px;
+}
+.google-login {
+    margin-right: 8px;
+}
+
+.social-login a {
+    color: #fff;
+    text-decoration: none;
+}
+.checkbox-bootom-login {
+
+    display: block ruby;
+    margin-bottom: 34px;
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\contributor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +15,8 @@ use Response;
 class DashboardController extends Controller
 {
     //
-    public function dashboard()
-    {	
+    public function dashboard_contributer()
+    { 
       $data = [];
       $categories = Category::get();
       $news = News::get();
@@ -26,9 +26,10 @@ class DashboardController extends Controller
       $data['count_news'] = count($news);
       $data['count_library'] = count($library);
       $data['board_count'] = count($boards);
-      return view('admin.dashboard',$data);
+      return view('contributor.dashboard',$data);
     }
 
+    
     public function vdashboard()
     {	
       return "Vendor";

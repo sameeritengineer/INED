@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Contributor;
 
 use App\Library;
 use App\Category;
@@ -19,8 +19,9 @@ class LibraryController extends Controller
     public function index()
     {
         //
-        $libraries = Library::get();
-        return view('admin.library.index',compact('libraries'));
+        $user = Auth::user();
+        $libraries = Library::where('added_by', $user->id)->get();
+        return view('contributor.library.index',compact('libraries'));
     }
 
     /**
@@ -36,7 +37,7 @@ class LibraryController extends Controller
         $type = ContentType::get();
         $data['categories'] = $categories;
         $data['types'] = $type;
-        return view('admin.library.create',$data);
+        return view('contributor.library.create',$data);
     }
 
     /**
@@ -51,7 +52,6 @@ class LibraryController extends Controller
         //dd($request->all());
         $request->validate([
             'name' => 'required',
-            'slug' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'video' => ['mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts|max:100040']
         ]);
@@ -101,10 +101,10 @@ class LibraryController extends Controller
                    $video = NULL;
                    $vpicture = NULL;
               }
+              $user = Auth::user();
               $library = Library::create([
                 'content_type_id' => trim($params['content_type_id']),
                 'name' => trim($params['name']),
-                'slug' => trim($params['slug']),
                 'description' => trim($params['description']),
                 'alt' => trim($params['alt']),
                 'image' => $picture,
@@ -114,11 +114,9 @@ class LibraryController extends Controller
                 'category_id' => $params['c_id'],
                 'subcategory_id' => $params['s_id'],
                 'upload' => $video,
-                'meta_title' => trim($params['meta_title']),
-                'meta_keyword' => trim($params['meta_keyword']),
-                'meta_description' => trim($params['meta_description']),
-                'status' => trim($params['status']),
+                'status' => 0,
                 'videoimage' => $vpicture,
+                'added_by' => $user->id
             ]);
             }
          }catch (Throwable $e) {
@@ -165,7 +163,7 @@ class LibraryController extends Controller
         $data['subcategories'] = $subcategories;
         $data['types'] = $type;
         $data['libraries'] = $library;
-        return view('admin.library.edit',$data);
+        return view('contributor.library.edit',$data);
     }
 
     /**

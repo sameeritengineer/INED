@@ -46,6 +46,11 @@ Route::group([
   Route::get('meet-the-team', 'TeamController@index')->name('meet-the-team');
   Route::post('contact-us', 'ContactController@store')->name('contact-submit');
   Route::post('subscribe', 'ContactController@subscribe')->name('subscribe');
+  Route::get('sign-up', 'LoginController@index')->name('index');
+  Route::post('sign-up-submit', 'LoginController@store')->name('sign-up-submit');
+  Route::get('verified/{any}', 'LoginController@verified')->name('verified');
+  Route::get('sign-in', 'LoginController@signin')->name('sign-in');
+  Route::post('sign-in-submit', 'LoginController@signinauth')->name('sign-in-submit');
   /* Pages Route Ends */
 
 });
@@ -68,4 +73,11 @@ Route::prefix('ined_admin')->middleware(['auth','can:isAllowed,"Admin:"'])->grou
        Route::resource('member','Admin\MemberController');
        Route::resource('news','Admin\NewsController');
        Route::post('subcategories','Admin\CategoryController@subcategories')->name('subcategories');
+       Route::resource('users','Admin\UsersGeneralController');
+       Route::resource('banner','Admin\BannerController');
+});
+
+Route::prefix('ined_contributor')->middleware(['auth','can:isContributor,"Contributor:"'])->group(function () {
+      Route::get('/','Contributor\DashboardController@dashboard_contributer')->name('contibuter-dashboard');
+      Route::resource('libraries-contributor','Contributor\LibraryController');
 });

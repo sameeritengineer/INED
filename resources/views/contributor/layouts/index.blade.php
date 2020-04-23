@@ -1,0 +1,5 @@
+@include('contributor.layouts.header')
+@include('contributor.layouts.nav')
+@include('contributor.layouts.sidebar')
+@yield('content')
+@include('contributor.layouts.footer')

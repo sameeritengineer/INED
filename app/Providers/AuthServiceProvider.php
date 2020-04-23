@@ -29,7 +29,11 @@ class AuthServiceProvider extends ServiceProvider
             $roles = $user->role->pluck('name')->toArray();
             return array_intersect($allowed, $roles);
         });
-
+        Gate::define('isContributor', function($user,$allowed){
+            $allowed = explode(':',$allowed);
+            $roles = $user->role->pluck('name')->toArray();
+            return array_intersect($allowed, $roles);
+        });
         //
     }
 }

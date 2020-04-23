@@ -43,7 +43,9 @@ class LoginController extends Controller
     {
         if(in_array('Admin',$user->role->pluck('name')->toArray())){
             $this->redirectTo = '/ined_admin';
-        }else{
+        } else if(in_array('Contributor',$user->role->pluck('name')->toArray())){
+            $this->redirectTo = '/ined_contributor';
+        } else{
             $this->redirectTo = '/home';
         }
     }
