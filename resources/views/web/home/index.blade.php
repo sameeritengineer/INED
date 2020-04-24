@@ -22,11 +22,11 @@
             @foreach($banner as $banner)
             <div class="swiper-slide">
                 <img style="width: 100%" class="img-responsive" src="{{asset('admin/upload/banner/'.$banner->image)}}" alt="" />
-                <?php if(!empty($banner->redirect_url)){
-                    $redirect_url = $banner->redirect_url;}else{
-                    $redirect_url = '#';    
-                    } ?>
-                <a href="{{$redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
+                <?php if(!empty($banner->redirect_url)){  ?>
+                   <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
+                <?php }else{ ?>
+                   <a class="banner-link">{!!$banner->description!!}</a>
+                <?php } ?>
             </div>
             @endforeach
         </div>
