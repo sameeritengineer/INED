@@ -14,23 +14,21 @@
             </div>
         </div>
     </div>
-</div>
- -->
+</div> -->
+
 <div class="col-md-12 col-sm-12 col-xs-12 custom-slider" id="custom-slider">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             @foreach($banner as $banner)
             <div class="swiper-slide">
                 <img style="width: 100%" class="img-responsive" src="{{asset('admin/upload/banner/'.$banner->image)}}" alt="" />
-               <!--  <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a> -->
-                <div class="banner-cont text-center banner_class_css">
-                   <h3 class=""><strong>
-                    @if(!empty($banner->redirect_url)) 
-                    <a href="{{$banner->redirect_url}}">{!!$banner->description!!}</a>
-                    @else
-                    <a href="#">{!!$banner->description!!}</a>
-                    @endif
-                    </h3>
+                
+                <div class="banner-cont banner_class_css">
+                @if(!empty($banner->redirect_url))
+                <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
+                @else
+                <a href="#" class="banner-link">{!!$banner->description!!}</a>
+                @endif
                    <strong><a class="know-more-btn ined-library-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
                </div>
             </div>
