@@ -2650,3 +2650,10 @@ span.social-icon {
     margin-bottom: 34px;
 
 }
+.ined-library-btn {
+    padding: 5px 50px;
+}
+.ined-library-btn:hover {
+    background-color: #ae272e;
+    transition: 0.3s;
+}

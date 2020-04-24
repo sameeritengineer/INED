@@ -9,7 +9,7 @@
                 <img src="{{asset('web/images/mob-banner.jpg')}}" alt="" class="img-responsive bannner-img visible-xs" />
                <div class="banner-cont text-center">
                    <h3 class=""><strong>Our Mission is to Create a World Class <br> Medical E-library for Anyone Anywhere</strong></h3>
-                   <strong><a class="know-more-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
+                   <strong><a class="know-more-btn ined-library-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
                </div>
             </div>
         </div>
