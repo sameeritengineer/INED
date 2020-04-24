@@ -56,10 +56,11 @@
 
                   <div class="col-md-12 col-sm-12 col-xs-12 checkbox-bootom-login">
                     <input type="checkbox" class="checkbox-signup" placeholder="Country*" name="your_phone">
-                    <p class="chkbox-cont">Rmemeber Me</p>
+                    <p class="checkbox-signup">Rmemeber Me</p>
                   </div>
 
                   <input type="submit" name="submit" class="login-submit-btn" value="Sign In">
+                  
 
                   <h3 class="social-login-head">Continue With</h3>
 

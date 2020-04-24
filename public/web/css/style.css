@@ -2549,8 +2549,8 @@ span.social-icon {
     height: 38px;
     border-radius: 5px;
     border: 2px solid #ae272e;
-    display: flex;
     margin: auto;
+    margin-left: 16%;
 }
 .sign-up-submit-btn:hover {
     background: #ae272e;
@@ -2561,8 +2561,8 @@ span.social-icon {
     height: 38px;
     border-radius: 5px;
     border: 2px solid #ae272e;
-    display: flex;
     margin: auto;
+    margin-left: 16%;
 }
 .login-text {
     color: #9a2e36;
@@ -2599,24 +2599,11 @@ span.social-icon {
     height: 46px;
     border-radius: 5px;
     border: 2px solid #ae272e;
-    display: flex;
     margin: auto;
     font-size: 20px;
 
 }
-.login-submit-btn{
-    background: #ae272e;
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    line-height: 36px;
-    height: 46px;
-    border-radius: 5px;
-    border: 2px solid #ae272e;
-    display: flex;
-    margin: auto;
-    font-size: 20px;
-}
+
 .social-login-head {
     font-size: 19px;
     color: #ae272e;

@@ -56,7 +56,7 @@ class LoginController extends BaseController
                   'country' => trim($params['country']),
                   'password' => bin2hex($params['password']),
                   'is_contributor' => $is_contributor,
-                  'is_email_verified' => '0',
+                  'is_email_verified' => '1',
                   'role' =>  $role
               ]);
               $success = true;
@@ -69,7 +69,7 @@ class LoginController extends BaseController
                 ];
             }
         if($success == true){
-          ini_set('max_execution_time', 300);
+/*          ini_set('max_execution_time', 300);
           $string = date('d-m-Y H:i:s')."#".$params['email'];
           $encrypted = bin2hex($string);
           $createLink = url('/')."/verified/".$encrypted;
@@ -84,7 +84,7 @@ class LoginController extends BaseController
                 $message->to($data['to']);
                 $message->bcc($data['bcc']);
                 $message->subject($data['subject']);
-          });
+          });*/
           return redirect()->back()->with('success','Thanks for sign up');
         }else{
           return redirect()->back()->with('error', $dbError['msg']);

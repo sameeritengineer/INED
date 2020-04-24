@@ -67,12 +67,12 @@
 
                   <div class="col-md-12 col-sm-12 col-xs-12 checkbox-bootom">
                     <input type="checkbox" class="checkbox-signup vali"  name="terms_policy"  id="terms_policy" value="1" required="">
-                    <p class="chkbox-cont">I agree to the terms of services.</p>
+                    <p class="checkbox-signup">I agree to the terms of services.</p>
                   </div>
 
                   <div class="col-md-12 col-sm-12 col-xs-12 checkbox-bootom">
                     <input type="checkbox" class="checkbox-signup" name="is_contributor" id="is_contributor" value="1">
-                    <p class="chkbox-cont">Be a Contributor</p>
+                    <p class="checkbox-signup">Be a Contributor</p>
                   </div>
 
                   <input type="submit" id="apnbtnrequest" name="submit" class="sign-up-submit-btn" value="SUBMIT">
