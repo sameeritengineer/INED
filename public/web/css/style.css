@@ -2657,3 +2657,13 @@ span.social-icon {
     background-color: #ae272e;
     transition: 0.3s;
 }
+.banner_class_css p{
+    color: #fff;
+    font-size: 30px;
+    line-height: 40px;
+    text-shadow: 3px 3px 3px #000;
+    font-weight: 700;
+}
+.banner_class_css a{
+    text-decoration: none;
+}
