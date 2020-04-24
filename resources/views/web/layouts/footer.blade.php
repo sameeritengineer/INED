@@ -143,6 +143,18 @@ $(document).ready(function(){
   }
 });
 
+ var swiper = new Swiper('#custom-slider .swiper-container', {
+  slidesPerView: 1,
+  pagination: {
+    el: '#custom-slider .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '#testimonial .swiper-button-next',
+    prevEl: '#testimonial .swiper-button-prev',
+  }
+});
+
   var swiper = new Swiper('#our_member_slider .swiper-container', {
   slidesPerView: 4,
   //centeredSlides: true,

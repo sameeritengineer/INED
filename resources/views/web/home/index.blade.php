@@ -1,7 +1,7 @@
 @extends('web.layouts.index')
 @section('title','INEDSYS')
 @section('content')
-<div class="col-md-12 col-sm-12 col-xs-12 top-banner" id="banner">
+<!-- <div class="col-md-12 col-sm-12 col-xs-12 top-banner" id="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
 	       <div class="swiper-slide">
@@ -9,20 +9,30 @@
                 <img src="{{asset('web/images/mob-banner.jpg')}}" alt="" class="img-responsive bannner-img visible-xs" />
                <div class="banner-cont text-center">
                    <h3 class=""><strong>Our Mission is to Create a World Class <br> Medical E-library for Anyone Anywhere</strong></h3>
-                   <strong><a class="know-more-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
+                   <strong><a class="know-more-btn ined-library-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
                </div>
             </div>
         </div>
     </div>
 </div>
-
+ -->
 <div class="col-md-12 col-sm-12 col-xs-12 custom-slider" id="custom-slider">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             @foreach($banner as $banner)
             <div class="swiper-slide">
                 <img style="width: 100%" class="img-responsive" src="{{asset('admin/upload/banner/'.$banner->image)}}" alt="" />
-                <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
+               <!--  <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a> -->
+                <div class="banner-cont text-center banner_class_css">
+                   <h3 class=""><strong>
+                    @if(!empty($banner->redirect_url)) 
+                    <a href="{{$banner->redirect_url}}">{!!$banner->description!!}</a>
+                    @else
+                    <a href="#">{!!$banner->description!!}</a>
+                    @endif
+                    </h3>
+                   <strong><a class="know-more-btn ined-library-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
+               </div>
             </div>
             @endforeach
         </div>
