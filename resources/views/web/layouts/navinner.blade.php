@@ -30,6 +30,15 @@
                         <li><a href="{{route('web.all-editorial')}}">Editorial Board</a></li>
                         <li><a href="{{route('web.news-and-events')}}">News &amp; Events</a></li>
                         <li><a href="{{route('web.contact-us')}}">Contact Us</a></li>
+                         <li>
+                            <?php if(isset(session()->all()['userId']) && session()->all()['userId']>0 ){?>
+                                <a href="log-out">Log Out</a><br>
+                                <span style="color:black">{{session()->all()['userName']}}</span>
+                            <?php } else { ?>
+                            <a href="sign-in">Sign In | </a>
+                            <a href="sign-up">Sign Up </a>
+                            <?php } ?>
+                        </li>
                     </ul>
                     <span><i class="fa fa-bars pull-right menu-icon"></i></span>
                 </div>

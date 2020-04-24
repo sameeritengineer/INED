@@ -144,6 +144,12 @@ class LoginController extends BaseController
                         'error' => '',
                         'msg' => "Email id not verify"
                     ];
+                } else if($usersData->status == 2){
+                    $success = false;
+                    $dbError = [
+                        'error' => '',
+                        'msg' => "your id is permanently disabled"
+                    ];
                 } else {
                     session([
                        'userId' => $usersData->id,
@@ -179,6 +185,16 @@ class LoginController extends BaseController
           return redirect()->back()->with('error', $dbError['msg']);
         }    
 
+    }
+
+     public function logout(Request $request)
+    {   
+       $request->session()->forget('userEmail');
+       $request->session()->forget('userName');
+       $request->session()->forget('userRole');
+       $request->session()->forget('isContributor');
+       $request->session()->forget('userId');
+       return redirect(url('/sign-in'));
     }
 
     

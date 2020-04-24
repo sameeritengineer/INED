@@ -18,7 +18,7 @@ class LibraryController extends BaseController
         $sidebar = $this->sidebar();
         $data = [];
         $typecount = [];
-        $categories = Category::select('id','name','slug','image','alt')->where('cat_parent_id',0)->where('status', 1)->orderByRaw('ined_sort')->limit(6)->get();
+        $categories = Category::select('id','name','slug','image','alt')->where('cat_parent_id',0)->where('status', 1)->orderByRaw('ined_sort')->get();
         $content_types = ContentType::get();
         foreach($categories as $cats){
             foreach($content_types as $types){
