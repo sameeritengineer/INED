@@ -51,6 +51,7 @@ Route::group([
   Route::get('verified/{any}', 'LoginController@verified')->name('verified');
   Route::get('sign-in', 'LoginController@signin')->name('sign-in');
   Route::post('sign-in-submit', 'LoginController@signinauth')->name('sign-in-submit');
+  Route::get('log-out', 'LoginController@logout')->name('logout');
   /* Pages Route Ends */
 
 });
