@@ -16,7 +16,7 @@ class HomeController extends BaseController
         $categories = Category::select('id','name','slug','image','alt')->where('cat_parent_id',0)->where('status', 1)->orderByRaw('home_sort')->limit(6)->get();
         $boards = Board::select('id','name','slug','image','alt','s_description','designation')->where('status', 1)->where('h_status', 1)->orderByRaw('sort')->limit(6)->get();
         $news = News::select('id','name','slug','image','alt','url','date')->where('status', 1)->orderByRaw('sort')->limit(9)->get();
-        $banner = Banner::select('id','description','redirect_url','image')->where('status', 1)->orderByRaw('sort')->get();
+        $banner = Banner::select('id','description','redirect_url','image','font_size','color')->where('status', 1)->orderByRaw('sort')->get();
         $data['categories'] = $categories;
         $data['boards'] = $boards;
         $data['news'] = $news;

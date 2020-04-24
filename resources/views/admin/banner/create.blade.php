@@ -51,13 +51,27 @@
                         <h4 class="form-section"><i class="ft-user"></i> Banner Info</h4>
 
                         <div class="row">
-                           <div class="col-md-12">
+                           <div class="col-md-6">
                               <div class="form-group">
                                  <label for="projectinput8">Description</label>
-                                 <textarea id="summary-ckeditor" rows="5" class="form-control editor" name="description" placeholder=" Description"></textarea>
+                                <input type="text" id="summary-ckeditor" class="form-control" placeholder="Description" name="description">
+                              </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="form-group">
+                                 <label for="font_size">Font Size in pixel</label>
+                                <input type="text" id="font_size" class="form-control" placeholder="Font Size Example: 20px" name="font_size">
+                              </div>
+                           </div>
+
+                           <div class="col-md-3">
+                              <div class="form-group">
+                                 <label for="color">Color in code</label>
+                                <input type="text" id="color" class="form-control" placeholder="Color Example: #ffff" name="color">
                               </div>
                            </div>
                         </div>
+
                         <div class="row">
                            <div class="col-md-6">
                               <div class="form-group">

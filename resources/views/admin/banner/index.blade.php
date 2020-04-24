@@ -43,6 +43,8 @@
                         <tr>
                           <th>#</th>
                           <th>Description</th>
+                          <th>Size</th>
+                          <th>Color</th>
                           <th>image</th>
                           <th>Redirect URL</th>
                           <th>Edit</th>
@@ -53,7 +55,9 @@
                       	@foreach($banner as $banner)
                         <tr>                  
                           <td>{{$loop->iteration}}</td>
-                          <td>{!!$banner->description!!}</td>
+                          <td>{{$banner->description}}</td>
+                           <td>{{$banner->font_size}}</td>
+                          <td>{{$banner->color}}</td>
                           <td><img src="{{asset('admin/upload/banner/'.$banner->image)}}" width="100"/></td>  
                           <td><a href="{{$banner->redirect_url}}" target="_blank">{{$banner->redirect_url}}</a></td>       
                           <td>
@@ -68,6 +72,8 @@
                         <tr>
                           <th>#</th>
                           <th>Description</th>
+                          <th>Size</th>
+                          <th>Color</th>
                           <th>image</th>
                           <th>Redirect URL</th>
                           <th>Edit</th>

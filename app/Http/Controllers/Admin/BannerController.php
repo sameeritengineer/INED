@@ -62,6 +62,8 @@ class BannerController extends Controller
               }
               $Banner = Banner::create([
                 'description' => trim($params['description']),
+                'font_size' => trim($params['font_size']),
+                'color' => trim($params['color']),
                 'alt' => trim($params['alt']),
                 'image' => $picture,
                 'meta_title' => trim($params['meta_title']),
@@ -144,6 +146,8 @@ class BannerController extends Controller
               }
                 $updateFields = [
                 'description' => trim($params['description']),
+                'font_size' => trim($params['font_size']),
+                'color' => trim($params['color']),
                 'alt' => trim($params['alt']),
                 'image' => $picture,
                 'meta_title' => trim($params['meta_title']),

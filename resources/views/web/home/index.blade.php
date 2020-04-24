@@ -9,7 +9,7 @@
                 <img src="{{asset('web/images/mob-banner.jpg')}}" alt="" class="img-responsive bannner-img visible-xs" />
                <div class="banner-cont text-center">
                    <h3 class=""><strong>Our Mission is to Create a World Class <br> Medical E-library for Anyone Anywhere</strong></h3>
-                   <strong><a class="know-more-btn ined-library-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
+                   <strong><a style="font-size:20px;" class="know-more-btn ined-library-btn" href="{{route('web.ined-library')}}"><i class="fa fa-play-circle-o video_icon"></i> INED LIBRARY</a> </strong>
                </div>
             </div>
         </div>
@@ -22,10 +22,19 @@
             @foreach($banner as $banner)
             <div class="swiper-slide">
                 <img style="width: 100%" class="img-responsive" src="{{asset('admin/upload/banner/'.$banner->image)}}" alt="" />
-                <?php if(!empty($banner->redirect_url)){  ?>
-                   <a href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
+                <?php 
+                    $customStyle = "";
+                   if(!empty($banner->font_size)){ 
+                        $customStyle .= ' font-size :'.$banner->font_size.";";
+                   }
+                   if(!empty($banner->color)){ 
+                        $customStyle .= ' color :'.$banner->color.";";
+                   }
+                   if(!empty($banner->redirect_url)){ 
+                 ?>
+                   <a style="{{$customStyle}}" href="{{$banner->redirect_url}}" class="banner-link">{!!$banner->description!!}</a>
                 <?php }else{ ?>
-                   <a class="banner-link">{!!$banner->description!!}</a>
+                   <a style="{{$customStyle}}" class="banner-link">{!!$banner->description!!}</a>
                 <?php } ?>
             </div>
             @endforeach
