@@ -195,7 +195,6 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    text-align: center;
     /* padding-left: 6%; */
 }
 
@@ -1787,7 +1786,7 @@ span.social-icon {
 }
 
 .banner-link {
-    /*position: absolute;*/
+    position: absolute;
     bottom: 50px;
     color: #fff;
     text-shadow: 3px 3px 3px #000;
@@ -2657,14 +2656,4 @@ span.social-icon {
 .ined-library-btn:hover {
     background-color: #ae272e;
     transition: 0.3s;
-}
-.banner_class_css p{
-    color: #fff;
-    font-size: 30px;
-    line-height: 40px;
-    text-shadow: 3px 3px 3px #000;
-    font-weight: 700;
-}
-.banner_class_css a{
-    text-decoration: none;
 }
