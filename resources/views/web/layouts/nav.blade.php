@@ -25,7 +25,7 @@
                         <li style="border-left:0px;"><a href="{{route('web.home')}}">Home</a></li>
                         <li class="about-menu"><a href="{{route('web.about-us')}}">About Us <i class="fa fa-angle-down"></i></a>
                             <ul class=" sub-ul">
-                                <li><a href="{{route('web.meet-the-team')}}">Leadership</a></li>
+                                <li><a href="{{route('web.leadership')}}">Leadership</a></li>
                                 <li><a href="{{route('web.ined-library')}}">INED Library</a></li>
                                <!-- <li><a href="our-goal.php">Our Goal</a></li> -->
                             </ul>

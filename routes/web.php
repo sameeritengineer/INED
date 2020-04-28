@@ -43,7 +43,7 @@ Route::group([
   Route::get('terms-of-use', 'HomeController@term')->name('terms-of-use');
   Route::get('contact-us', 'ContactController@index')->name('contact-us');
   Route::get('news-and-events', 'NewsController@index')->name('news-and-events');
-  Route::get('meet-the-team', 'TeamController@index')->name('meet-the-team');
+  Route::get('meet-the-team/{category?}', 'TeamController@index')->name('meet-the-team');
   Route::post('contact-us', 'ContactController@store')->name('contact-submit');
   Route::post('subscribe', 'ContactController@subscribe')->name('subscribe');
   Route::get('sign-up', 'LoginController@index')->name('index');
@@ -52,6 +52,7 @@ Route::group([
   Route::get('sign-in', 'LoginController@signin')->name('sign-in');
   Route::post('sign-in-submit', 'LoginController@signinauth')->name('sign-in-submit');
   Route::get('log-out', 'LoginController@logout')->name('logout');
+  Route::get('leadership', 'LeadershipController@index')->name('leadership');
   /* Pages Route Ends */
 
 });

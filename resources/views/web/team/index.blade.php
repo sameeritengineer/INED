@@ -25,12 +25,33 @@
 					@endforeach
 				</div>
 
+
+                @if(count($teams1)>0)
+				<div class="col-md-12 col-sm-12 col-xs-12 team_row">
+                 <h1 style="margin-top:20px;">Contributor</h1>
+                   @foreach($teams1 as $teams1)
+					<div class="col-md-6 col-sm-6 col-xs-12 profile_row">
+						<div class="profile_img">
+							<img class="img-circle" src="{{asset('admin/upload/team/'.$team->image)}}" alt="{{$team->alt}}" />
+						</div>
+
+						<div class="profile_name testimonial_content">
+	                        <h3 class="black_color">{{$teams1->name}}, {{$teams1->education}}</h3>
+	                        <p class="testimonial_p_profile theme_color">{{$teams1->designation}}</p>
+	                        <p>{{$teams1->location}}</p>
+						</div>
+					</div>
+					@endforeach
+				</div>
+               @endif
 				
 
 			</div>
 		</div>
 	</div>
 </div> 
+
+
 <div style="background-image: url({{asset('web/images/meet_team.jpg')}});" class="contact-img col-md-12 col-sm-12 col-xs-12">
 	<div class="container">
 		<div class="row display_grid">
