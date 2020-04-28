@@ -35,14 +35,4 @@
 		</ul>
 	</div>
 	@endif
-	<div class="sidebar_category">
-		<ul>
-			@if($sidebar['team_count'] > 0)
-            <li><a href="{{route('web.meet-the-team')}}"><i class="fa fa-angle-right"></i> meet the team</a></li>
-			@else
-			<li><a href="{{route('web.coming')}}"><i class="fa fa-angle-right"></i> meet the team</a></li>
-			@endif
-			<!-- <li><a href="#"><i class="fa fa-angle-right"></i> Recent News</a></li> -->
-		</ul>
-	</div>
 </div>

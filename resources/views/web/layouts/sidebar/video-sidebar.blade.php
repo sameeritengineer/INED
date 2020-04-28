@@ -24,15 +24,4 @@
 			@endforeach
 		</ul>
 	</div>
-	
-	@if(count($recent_news) > 0)
-	<div class="sidebar_category">
-		<h3 class="title-color">New Events</h3>
-		<ul>
-			@foreach($recent_news as $news)
-			<li><a href="{{$news->url}}"><i class="fa fa-angle-right"></i>{{$news->name}}</a></li>
-			@endforeach
-		</ul>
-	</div>
-	@endif
 </div>

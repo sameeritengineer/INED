@@ -35,7 +35,7 @@
 		</ul>
 	</div>
 	@endif
-	@if(Route::current()->getName() != 'web.ined-library')
+	@if (in_array(Route::current()->getName(), array('web.ined-library-detail')))
 	<div class="sidebar_category">
 		<ul>
 			@if($sidebar['team_count'] > 0)
