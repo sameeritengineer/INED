@@ -23,11 +23,13 @@ class NewsController extends BaseController
       $data = [];
      $categories = Category::select('id','name','slug')->where('cat_parent_id',0)->where('status', 1)->orderByRaw('home_sort')->limit(6)->get();
      $recent_categories = Category::select('id','name','slug')->where('cat_parent_id',0)->where('status', 1)->orderBy('id', 'DESC')->limit(5)->get();	
-     $recent_news = News::select('id','name','url')->where('status',1)->where('upcoming',1)->orderBy('id', 'DESC')->limit(5)->get();
+     $recent_news = News::select('id','name','url')->where('status',1)->whereNotIn('upcoming',[1])->orderBy('id', 'DESC')->limit(5)->get();
+     $upcoming_events = News::select('id','name','url')->where('status',1)->whereIn('upcoming',[1])->orderBy('id', 'DESC')->limit(5)->get();
      $teams = Team::get();
      $data['categories'] = $categories;
      $data['recent_categories'] = $recent_categories;
      $data['recent_news'] = $recent_news;
+     $data['upcoming_events'] = $upcoming_events;
      $data['team_count'] = count($teams);
      return $data;
     }

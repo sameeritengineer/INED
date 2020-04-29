@@ -35,4 +35,16 @@
 		</ul>
 	</div>
 	@endif
+
+	@if(count($sidebar['upcoming_events']) > 0)
+	<div class="sidebar_category">
+		<h3 class="title-color">Upcoming Events</h3>
+		<ul>
+			@foreach($sidebar['upcoming_events'] as $news)
+			<li><a href="{{$news->url}}"><i class="fa fa-angle-right"></i>{{$news->name}}</a></li>
+			@endforeach
+		</ul>
+	</div>
+	@endif
+
 </div>
