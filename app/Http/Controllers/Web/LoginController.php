@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Mail;
+use Redirect;
 
 class LoginController extends BaseController
 {
@@ -157,6 +158,7 @@ class LoginController extends BaseController
                        'userName' => $usersData->name,
                        'userRole' => $usersData->role,
                        'isContributor' => $usersData->is_contributor,
+                       'isAllow' => 1
                     ]);
                     $success = true;
                     $dbError = [
@@ -180,7 +182,10 @@ class LoginController extends BaseController
             }
         if($success == true){
           $data = Session::all();
-          return redirect('/');
+          if(isset($data['isUrl']) && !empty($data['isUrl']))
+            return Redirect::to($data['isUrl']);
+          else
+            return redirect('/');
         }else{
           return redirect()->back()->with('error', $dbError['msg']);
         }    
@@ -194,6 +199,10 @@ class LoginController extends BaseController
        $request->session()->forget('userRole');
        $request->session()->forget('isContributor');
        $request->session()->forget('userId');
+       $request->session()->forget('isUrl');
+       $request->session()->forget('libraryId');
+       $request->session()->forget('isAllow');
+       $request->session()->forget('url');
        return redirect(url('/sign-in'));
     }
 

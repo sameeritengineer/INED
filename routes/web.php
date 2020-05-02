@@ -53,6 +53,7 @@ Route::group([
   Route::post('sign-in-submit', 'LoginController@signinauth')->name('sign-in-submit');
   Route::get('log-out', 'LoginController@logout')->name('logout');
   Route::get('leadership', 'LeadershipController@index')->name('leadership');
+  Route::post('restiction', 'LibraryController@restiction')->name('restiction');
   /* Pages Route Ends */
 
 });

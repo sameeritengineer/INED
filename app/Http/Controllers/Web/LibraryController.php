@@ -10,6 +10,8 @@ use App\Library;
 use App\ContentType;
 use App\News;
 use App\Team;
+use Session;
+use Redirect;
 
 class LibraryController extends BaseController
 {
@@ -43,6 +45,7 @@ class LibraryController extends BaseController
        $data['sidebar'] = $sidebar;
        $data['categorySlug'] = $categorySlug;
        $data['typeSlug'] = $typeSlug;
+       $data['session'] = Session::all();
        if(count($data['libraries']) > 0){
           if($gettypeData->id == 1){
            return view('web.library.video',$data);
@@ -56,9 +59,12 @@ class LibraryController extends BaseController
        }
     }
     public function videodetail($categorySlug,$typeSlug,$slug)
-    {
+    {   
         $data = [];
         $library = Library::where('status',1)->where('slug',$slug)->first();
+        $allow = $this->libraryAllow($library->id);
+        if($allow == 0)
+          return redirect(url('/sign-in'));
         $getcategoryData = Category::select('id','name')->where('slug',$categorySlug)->first();
         $gettypeData = ContentType::select('id')->where('name',$typeSlug)->first();
         $libraryList = Library::select('id','name','slug','url','upload')->where('status',1)->where('category_id',$getcategoryData->id)->where('content_type_id',$gettypeData->id)->orderBy('id', 'DESC')->limit(5)->get();
@@ -111,4 +117,36 @@ class LibraryController extends BaseController
         $data['team_count'] = count($teams);
         return $data;
     }
+
+    public function restiction(Request $request){
+       $params = $request->input();
+       $library = Library::where('id',$params['hid'])->first();
+       $subscription_type = $library->subscription_type;
+       $redirect_url = $params['redirect_url'];
+       $login = $params['login'];
+       session([
+         'isUrl' => $redirect_url,
+         'libraryId' => $params['hid'],
+         'isAllow' => 1
+       ]);
+       if($subscription_type == 'free' && $login =='guest'){
+           return Redirect::to($redirect_url);
+       } else {
+          return redirect(url('/sign-in'));
+       }
+    }
+
+    public function libraryAllow($id){
+        $session = Session::all();
+        if(!isset($session['isAllow'])){
+            return 0;
+        } else if(!isset($session['libraryId'])){
+            return 0;
+        } else if( $session['libraryId'] !=$id ){
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+    
 }

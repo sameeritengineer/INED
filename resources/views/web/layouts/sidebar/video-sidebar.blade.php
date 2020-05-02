@@ -3,7 +3,7 @@
 		<form class="search_form" action="{{route('web.search')}}" method="post">
 			@csrf
 			<input type="search" placeholder="Search" class="search_field" name="">
-			<button type="button" class="search_submit_btn"><i class="fa fa-search"></i></button>
+			<button type="button" class="search_submit_btn"><i class="cangle-right fa fa-search"></i></button>
 		</form>
 	</div>
 

@@ -19,13 +19,13 @@
 						<div  class="profile_name testimonial_content">
 	                        <h3>{{$board->name}}</h3>
 	                        <p class="testimonial_p_profile"><b>{{$board->designation}}</b></p>
-	                        <p >{{$board->s_description}}</p>
+                          <span id="dots">
+                          <div class="col-md-12 col-sm-12 col-xs-12 profile_des">
+                            <div class="truncate">{!! $board->l_description !!}</div>
+                          </div>
+                          </span>
 						</div>
-					</div> <span id="dots">
-					<div class="col-md-12 col-sm-12 col-xs-12 profile_des">
-						<div class="truncate">{!! $board->l_description !!}</div>
-					</div>
-					
+					</div> 
 				</div>
 @endforeach
 
@@ -37,7 +37,7 @@
 <script>
 $(document).ready(function() {
   (function() {
-    var showChar = 800;
+    var showChar = 300;
     var ellipsestext = "...";
 
     $(".truncate").each(function() {

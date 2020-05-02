@@ -30,7 +30,7 @@
 		<h3 class="title-color">New Events</h3>
 		<ul>
 			@foreach($sidebar['recent_news'] as $news)
-			<li><a href="{{$news->url}}"><i class="fa fa-angle-right"></i>{{$news->name}}</a></li>
+			<li><a href="{{$news->url}}"><i class="cangle-right fa fa-angle-right"></i>{{$news->name}}</a></li>
 			@endforeach
 		</ul>
 	</div>
@@ -41,7 +41,7 @@
 		<h3 class="title-color">Upcoming Events</h3>
 		<ul>
 			@foreach($sidebar['upcoming_events'] as $news)
-			<li><a href="{{$news->url}}"><i class="fa fa-angle-right"></i>{{$news->name}}</a></li>
+			<li><a href="{{$news->url}}"><i class="cangle-right fa fa-angle-right"></i>{{$news->name}}</a></li>
 			@endforeach
 		</ul>
 	</div>
