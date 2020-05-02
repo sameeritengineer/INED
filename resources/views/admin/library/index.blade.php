@@ -78,6 +78,8 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Description</th>
+                          <th>Content Type</th>
+                          <th>Category</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
